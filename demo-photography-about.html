@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>About — Lens & Light Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            950: '#0a0a0a',
+                            900: '#111111',
+                            800: '#1a1a1a',
+                            700: '#2a2a2a',
+                            600: '#3a3a3a',
+                            500: '#555555',
+                            400: '#888888',
+                            300: '#aaaaaa',
+                            200: '#cccccc',
+                            100: '#e5e5e5',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-brand-950 text-white antialiased">
+
+    <!-- Demo Banner -->
+    <div class="bg-blue-600 text-white text-center py-2 text-xs font-medium tracking-wide">✦ Example website built by <a href="https://weblab.solutions" class="underline hover:text-blue-200">Weblab Solutions Solutions</a>. Lens & Light Studio is not a real business. <a href="portfolio.html" class="underline hover:text-blue-200">← Back to portfolio</a></div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-brand-950/80 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="demo-photography.html" class="font-serif italic text-xl tracking-tight">Lens & Light</a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="demo-photography-gallery.html" class="text-sm text-brand-300 hover:text-white transition-colors">Gallery</a>
+                    <a href="demo-photography.html#pricing" class="text-sm text-brand-300 hover:text-white transition-colors">Pricing</a>
+                    <a href="demo-photography-about.html" class="text-sm text-white transition-colors">About</a>
+                    <a href="demo-photography.html#contact" class="text-sm text-brand-300 hover:text-white transition-colors">Contact</a>
+                    <a href="demo-photography.html#contact" class="text-xs font-medium px-5 py-2 border border-white/20 rounded-full hover:bg-white hover:text-brand-950 transition-all duration-300">Book a Session</a>
+                </div>
+                <button id="menu-toggle" class="md:hidden p-2 text-brand-300 hover:text-white transition-colors">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-brand-950/95 backdrop-blur-xl">
+            <div class="px-6 py-6 space-y-4">
+                <a href="demo-photography-gallery.html" class="block text-sm text-brand-300 hover:text-white transition-colors">Gallery</a>
+                <a href="demo-photography.html#pricing" class="block text-sm text-brand-300 hover:text-white transition-colors">Pricing</a>
+                <a href="demo-photography-about.html" class="block text-sm text-white transition-colors">About</a>
+                <a href="demo-photography.html#contact" class="block text-sm text-brand-300 hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="py-20 lg:py-28">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="relative overflow-hidden rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=800&h=500&fit=crop" alt="Photographer at work" class="w-full aspect-[4/5] object-cover">
+                </div>
+                <div>
+                    <p class="text-xs font-medium tracking-[0.25em] uppercase text-brand-400 mb-4">About Me</p>
+                    <h1 class="font-serif italic text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-8">
+                        Hello, I'm<br>Eleanor James
+                    </h1>
+                    <p class="text-brand-300 font-light leading-relaxed text-lg">
+                        Photographer, natural light enthusiast, and eternal observer of beautiful moments. Based in London, working worldwide.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Story -->
+    <section class="py-24 lg:py-32 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+                <div>
+                    <p class="text-xs font-medium tracking-[0.25em] uppercase text-brand-400 mb-3">My Story</p>
+                    <h2 class="font-serif italic text-3xl md:text-4xl tracking-tight mb-8">The journey so far</h2>
+                </div>
+                <div class="space-y-6">
+                    <p class="text-brand-300 font-light leading-relaxed">
+                        My love for photography began on a rain-soaked afternoon in 2016, armed with nothing but a secondhand camera and an overwhelming curiosity. What started as a quiet hobby — photographing friends, street scenes, the way light fell through my kitchen window — quickly became an all-consuming passion.
+                    </p>
+                    <p class="text-brand-300 font-light leading-relaxed">
+                        After studying fine art at university and spending two years assisting established photographers, I launched Lens & Light Studio in 2018. I wanted to create a space where photography felt less like a transaction and more like a collaboration — where clients felt seen, heard, and genuinely relaxed.
+                    </p>
+                    <p class="text-brand-300 font-light leading-relaxed">
+                        Eight years later, I've had the privilege of photographing over 500 sessions — from intimate elopements in the Scottish Highlands to editorial spreads for independent magazines. Every single shoot teaches me something new, and I wouldn't have it any other way.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Approach -->
+    <section class="py-24 lg:py-32 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <p class="text-xs font-medium tracking-[0.25em] uppercase text-brand-400 mb-3">Philosophy</p>
+                <h2 class="font-serif italic text-3xl md:text-4xl tracking-tight mb-4">My Approach</h2>
+                <p class="text-brand-300 font-light leading-relaxed">I believe the best photographs happen when people forget the camera is there.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+                <div class="text-center">
+                    <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="sun" class="w-5 h-5 text-brand-300"></i>
+                    </div>
+                    <h3 class="text-sm font-medium mb-3">Natural Light</h3>
+                    <p class="text-sm text-brand-400 font-light leading-relaxed">I work almost exclusively with natural and ambient light. It's softer, more honest, and creates a mood that artificial lighting simply can't replicate.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="heart" class="w-5 h-5 text-brand-300"></i>
+                    </div>
+                    <h3 class="text-sm font-medium mb-3">Relaxed Sessions</h3>
+                    <p class="text-sm text-brand-400 font-light leading-relaxed">No stiff poses or forced smiles. I guide you gently and let genuine moments unfold naturally. The result is photography that feels authentically you.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="book-open" class="w-5 h-5 text-brand-300"></i>
+                    </div>
+                    <h3 class="text-sm font-medium mb-3">Storytelling</h3>
+                    <p class="text-sm text-brand-400 font-light leading-relaxed">Every image should tell a story. I look for the in-between moments, the quiet glances, and the genuine emotions that make your story unique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment -->
+    <section class="py-24 lg:py-32 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative overflow-hidden rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=800&h=500&fit=crop" alt="Camera equipment" class="w-full aspect-[4/3] object-cover">
+                </div>
+                <div>
+                    <p class="text-xs font-medium tracking-[0.25em] uppercase text-brand-400 mb-3">Gear</p>
+                    <h2 class="font-serif italic text-3xl md:text-4xl tracking-tight mb-8">My Equipment</h2>
+                    <p class="text-brand-300 font-light leading-relaxed mb-10">The tools of the trade. While gear doesn't make the photographer, using reliable, professional equipment ensures the highest quality results for every client.</p>
+
+                    <div class="space-y-6">
+                        <div class="border-l border-white/10 pl-6">
+                            <h3 class="text-sm font-medium mb-1">Camera Body</h3>
+                            <p class="text-sm text-brand-400 font-light">Sony A7R V — 61 megapixels of detail, incredible dynamic range, and silent shooting for those quiet moments.</p>
+                        </div>
+                        <div class="border-l border-white/10 pl-6">
+                            <h3 class="text-sm font-medium mb-1">Prime Lenses</h3>
+                            <p class="text-sm text-brand-400 font-light">Sony 35mm f/1.4 GM — the storytelling lens. Sony 85mm f/1.4 GM — for portraits with beautiful compression. Sony 50mm f/1.2 GM — versatility and stunning bokeh.</p>
+                        </div>
+                        <div class="border-l border-white/10 pl-6">
+                            <h3 class="text-sm font-medium mb-1">Zoom Lenses</h3>
+                            <p class="text-sm text-brand-400 font-light">Sony 24-70mm f/2.8 GM II — the workhorse for weddings and events. Sony 70-200mm f/2.8 GM II — for capturing candid moments from a distance.</p>
+                        </div>
+                        <div class="border-l border-white/10 pl-6">
+                            <h3 class="text-sm font-medium mb-1">Lighting & Accessories</h3>
+                            <p class="text-sm text-brand-400 font-light">Godox AD200 Pro portable flash, MagMod modifier system, Gitzo carbon fibre tripod, and a carefully curated bag of reflectors and diffusers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Studio -->
+    <section class="py-24 lg:py-32 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <p class="text-xs font-medium tracking-[0.25em] uppercase text-brand-400 mb-3">Space</p>
+                    <h2 class="font-serif italic text-3xl md:text-4xl tracking-tight mb-6">The Studio</h2>
+                    <p class="text-brand-300 font-light leading-relaxed mb-6">
+                        Based in a converted warehouse in East London, my studio is a creative space designed for comfort and inspiration. Large north-facing windows flood the space with beautiful natural light throughout the day.
+                    </p>
+                    <p class="text-brand-300 font-light leading-relaxed mb-8">
+                        It's equipped for portrait sessions, product photography, and small editorial shoots — with a selection of backdrops, props, and a comfortable client area with tea, coffee, and good music.
+                    </p>
+                    <a href="demo-photography.html#contact" class="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-brand-300 transition-colors group">
+                        Book a studio session <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+                <div class="order-1 lg:order-2 relative overflow-hidden rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&h=500&fit=crop" alt="Photography studio" class="w-full aspect-[4/3] object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="py-24 lg:py-32 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 text-center">
+                <div>
+                    <span class="text-4xl md:text-5xl font-light block mb-2">8</span>
+                    <p class="text-xs tracking-[0.2em] uppercase text-brand-400">Years Experience</p>
+                </div>
+                <div>
+                    <span class="text-4xl md:text-5xl font-light block mb-2">500+</span>
+                    <p class="text-xs tracking-[0.2em] uppercase text-brand-400">Sessions Completed</p>
+                </div>
+                <div>
+                    <span class="text-4xl md:text-5xl font-light block mb-2">300+</span>
+                    <p class="text-xs tracking-[0.2em] uppercase text-brand-400">Happy Clients</p>
+                </div>
+                <div>
+                    <span class="text-4xl md:text-5xl font-light block mb-2">12</span>
+                    <p class="text-xs tracking-[0.2em] uppercase text-brand-400">Awards & Features</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 lg:py-32 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+            <h2 class="font-serif italic text-3xl md:text-5xl tracking-tight mb-6">Let's work together</h2>
+            <p class="text-brand-300 font-light max-w-lg mx-auto leading-relaxed mb-10">I'd love to hear about your project, your vision, or simply chat about photography over a coffee.</p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="demo-photography.html#contact" class="text-sm font-medium px-8 py-3.5 border border-white/20 rounded-full hover:bg-white hover:text-brand-950 transition-all duration-300">Book a Session</a>
+                <a href="demo-photography-gallery.html" class="text-sm font-medium px-8 py-3.5 text-brand-300 hover:text-white transition-colors flex items-center gap-2">
+                    See My Work <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <a href="demo-photography.html" class="font-serif italic text-lg">Lens & Light</a>
+                <div class="flex items-center gap-6">
+                    <a href="demo-photography-gallery.html" class="text-xs text-brand-500 hover:text-brand-300 transition-colors">Gallery</a>
+                    <a href="demo-photography.html#pricing" class="text-xs text-brand-500 hover:text-brand-300 transition-colors">Pricing</a>
+                    <a href="demo-photography-about.html" class="text-xs text-white">About</a>
+                    <a href="demo-photography.html#contact" class="text-xs text-brand-500 hover:text-brand-300 transition-colors">Contact</a>
+                </div>
+                <p class="text-[11px] text-brand-600">Demo site by <a href="https://weblab.solutions" class="text-brand-500 hover:text-brand-300 transition-colors">Weblab Solutions Solutions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    </script>
+</body>
+</html>

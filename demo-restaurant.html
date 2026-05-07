@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Ember &amp; Oak — Modern British Restaurant, London</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                    },
+                    colors: {
+                        amber: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                            900: '#78350f',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .font-serif-italic { font-family: 'Playfair Display', Georgia, serif; font-style: italic; }
+        .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+    </style>
+</head>
+<body class="font-sans text-zinc-800 bg-stone-50">
+
+    <!-- Demo Banner -->
+    <div class="bg-blue-600 text-white text-center py-2 text-xs font-medium tracking-wide">✦ This is an example website built by <a href="https://weblab.solutions" class="underline hover:text-blue-200">Weblab Solutions Solutions</a> to demonstrate our work. Ember &amp; Oak is not a real business. <a href="portfolio.html" class="underline hover:text-blue-200">← Back to portfolio</a></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-8 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
+                <a href="demo-restaurant.html" class="font-serif-italic text-2xl lg:text-3xl text-amber-800 font-semibold tracking-tight">Ember &amp; Oak</a>
+
+                <!-- Desktop Nav -->
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="demo-restaurant-menu.html" class="text-sm font-medium text-zinc-600 hover:text-amber-700 transition-colors tracking-wide uppercase">Menu</a>
+                    <a href="demo-restaurant-reservations.html" class="text-sm font-medium text-zinc-600 hover:text-amber-700 transition-colors tracking-wide uppercase">Reservations</a>
+                    <a href="#about" class="text-sm font-medium text-zinc-600 hover:text-amber-700 transition-colors tracking-wide uppercase">About</a>
+                    <a href="#contact" class="text-sm font-medium text-zinc-600 hover:text-amber-700 transition-colors tracking-wide uppercase">Contact</a>
+                    <a href="demo-restaurant-reservations.html" class="inline-flex items-center px-5 py-2.5 bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold rounded-full transition-all duration-200 shadow-sm hover:shadow-md">Book a Table</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-zinc-600 hover:text-amber-700" aria-label="Toggle menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-stone-100 shadow-lg">
+            <div class="px-4 py-4 space-y-1">
+                <a href="demo-restaurant-menu.html" class="block px-4 py-3 text-sm font-medium text-zinc-600 hover:text-amber-700 hover:bg-stone-50 rounded-lg transition-colors tracking-wide uppercase">Menu</a>
+                <a href="demo-restaurant-reservations.html" class="block px-4 py-3 text-sm font-medium text-zinc-600 hover:text-amber-700 hover:bg-stone-50 rounded-lg transition-colors tracking-wide uppercase">Reservations</a>
+                <a href="#about" class="mobile-nav-link block px-4 py-3 text-sm font-medium text-zinc-600 hover:text-amber-700 hover:bg-stone-50 rounded-lg transition-colors tracking-wide uppercase">About</a>
+                <a href="#contact" class="mobile-nav-link block px-4 py-3 text-sm font-medium text-zinc-600 hover:text-amber-700 hover:bg-stone-50 rounded-lg transition-colors tracking-wide uppercase">Contact</a>
+                <div class="pt-2">
+                    <a href="demo-restaurant-reservations.html" class="block text-center px-4 py-3 bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold rounded-full transition-colors">Book a Table</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&h=800&fit=crop" alt="Ember & Oak restaurant interior" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+        <div class="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
+            <p class="text-amber-300 text-sm sm:text-base font-semibold tracking-[0.3em] uppercase mb-6">Modern British Dining</p>
+            <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-medium leading-tight mb-6">Where Flame<br>Meets <em class="text-amber-300">Flavour</em></h1>
+            <p class="text-stone-300 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">Seasonal ingredients. Open-fire cooking. A dining experience rooted in tradition yet fearlessly modern.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="demo-restaurant-reservations.html" class="inline-flex items-center justify-center px-8 py-4 bg-amber-600 hover:bg-amber-700 text-white text-base font-semibold rounded-full transition-all duration-200 shadow-lg hover:shadow-xl">Book a Table</a>
+                <a href="demo-restaurant-menu.html" class="inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white text-base font-semibold rounded-full border border-white/30 transition-all duration-200">View Our Menu</a>
+            </div>
+        </div>
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <i data-lucide="chevron-down" class="w-6 h-6 text-white/60"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div>
+                    <p class="text-amber-600 text-sm font-semibold tracking-[0.2em] uppercase mb-4">Our Story</p>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-zinc-900 font-medium leading-tight mb-6">A Passion for<br><em class="text-amber-700">Open-Fire</em> Cooking</h2>
+                    <p class="text-zinc-600 text-lg leading-relaxed mb-6">Founded in 2018, Ember &amp; Oak brings modern British cooking with a focus on open-fire cooking and seasonal, locally sourced ingredients. Every dish tells a story of the land and the seasons.</p>
+                    <p class="text-zinc-600 leading-relaxed mb-8">Our chef works closely with farmers, foragers, and fishermen across the British Isles to bring you a menu that evolves with the calendar. From the crackle of the hearth to the final flourish on the plate, every detail matters.</p>
+                    <div class="flex items-center gap-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center">
+                                <i data-lucide="flame" class="w-5 h-5 text-amber-700"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-zinc-900">Open Fire</p>
+                                <p class="text-xs text-zinc-500">Wood &amp; Charcoal</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                <i data-lucide="leaf" class="w-5 h-5 text-green-700"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-zinc-900">Seasonal</p>
+                                <p class="text-xs text-zinc-500">British Isles</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                                <i data-lucide="award" class="w-5 h-5 text-purple-700"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-zinc-900">Awarded</p>
+                                <p class="text-xs text-zinc-500">AA Rosette</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&h=500&fit=crop" alt="Chef cooking at Ember & Oak" class="rounded-2xl shadow-2xl w-full h-[400px] lg:h-[500px] object-cover">
+                    <div class="absolute -bottom-6 -left-6 bg-amber-600 text-white px-6 py-4 rounded-xl shadow-lg hidden sm:block">
+                        <p class="font-serif-italic text-2xl font-semibold">6+</p>
+                        <p class="text-sm text-amber-100">Years of Excellence</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signature Dishes -->
+    <section class="py-20 lg:py-28 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-amber-600 text-sm font-semibold tracking-[0.2em] uppercase mb-4">From Our Kitchen</p>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-zinc-900 font-medium leading-tight">Signature <em class="text-amber-700">Dishes</em></h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Dish 1 -->
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&h=500&fit=crop" alt="Dry-Aged Ribeye Steak" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-amber-700">£38</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-xl font-semibold text-zinc-900 mb-2">Dry-Aged Ribeye</h3>
+                        <p class="text-zinc-500 text-sm leading-relaxed">28-day aged British beef, charcoal-grilled to perfection. Served with bone marrow butter, triple-cooked chips, and roasted vine tomatoes.</p>
+                    </div>
+                </div>
+                <!-- Dish 2 -->
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?w=800&h=500&fit=crop" alt="Pan-Roasted Sea Bass" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-amber-700">£32</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-xl font-semibold text-zinc-900 mb-2">Pan-Roasted Sea Bass</h3>
+                        <p class="text-zinc-500 text-sm leading-relaxed">Line-caught Cornish sea bass with saffron risotto, samphire, and a warm shellfish bisque. Delicate, bright, and deeply satisfying.</p>
+                    </div>
+                </div>
+                <!-- Dish 3 -->
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&h=500&fit=crop" alt="Chocolate Fondant" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-amber-700">£14</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-xl font-semibold text-zinc-900 mb-2">Chocolate Fondant</h3>
+                        <p class="text-zinc-500 text-sm leading-relaxed">Rich Valrhona dark chocolate with a molten centre, served with salted caramel ice cream and hazelnut praline. Our most-loved dessert.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="demo-restaurant-menu.html" class="inline-flex items-center gap-2 px-8 py-4 border-2 border-amber-600 text-amber-700 hover:bg-amber-600 hover:text-white text-sm font-semibold rounded-full transition-all duration-200">
+                    View Full Menu
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Press / Awards Strip -->
+    <section class="py-16 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div>
+                    <p class="text-amber-400 text-3xl mb-2">★</p>
+                    <p class="text-white font-serif text-xl font-semibold mb-1">Michelin Guide</p>
+                    <p class="text-stone-400 text-sm">Recommended</p>
+                </div>
+                <div>
+                    <p class="text-amber-400 text-3xl mb-2">#1</p>
+                    <p class="text-white font-serif text-xl font-semibold mb-1">TripAdvisor</p>
+                    <p class="text-stone-400 text-sm">Top Restaurant in London</p>
+                </div>
+                <div>
+                    <p class="text-amber-400 text-3xl mb-2">✦</p>
+                    <p class="text-white font-serif text-xl font-semibold mb-1">AA Rosette Award</p>
+                    <p class="text-stone-400 text-sm">Outstanding Cuisine</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-amber-600 text-sm font-semibold tracking-[0.2em] uppercase mb-4">Guest Voices</p>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-zinc-900 font-medium leading-tight">What Our <em class="text-amber-700">Diners</em> Say</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-stone-50 rounded-2xl p-8 border border-stone-100">
+                    <div class="flex gap-1 mb-4">
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                    </div>
+                    <p class="text-zinc-600 leading-relaxed mb-6 italic">"An absolutely extraordinary evening. The ribeye was cooked to perfection and the service was impeccable. This is dining at its finest — we'll be back every month."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-amber-200 rounded-full flex items-center justify-center text-amber-800 font-semibold text-sm">JC</div>
+                        <div>
+                            <p class="text-sm font-semibold text-zinc-900">James Crawford</p>
+                            <p class="text-xs text-zinc-400">Food Critic, London Evening Standard</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-stone-50 rounded-2xl p-8 border border-stone-100">
+                    <div class="flex gap-1 mb-4">
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                    </div>
+                    <p class="text-zinc-600 leading-relaxed mb-6 italic">"We celebrated our anniversary here and it was magical. The atmosphere, the open-fire kitchen, the seasonal tasting menu — every course was a revelation. Truly world-class."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-rose-200 rounded-full flex items-center justify-center text-rose-800 font-semibold text-sm">SM</div>
+                        <div>
+                            <p class="text-sm font-semibold text-zinc-900">Sarah &amp; Michael</p>
+                            <p class="text-xs text-zinc-400">Regular Guests</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-stone-50 rounded-2xl p-8 border border-stone-100">
+                    <div class="flex gap-1 mb-4">
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                    </div>
+                    <p class="text-zinc-600 leading-relaxed mb-6 italic">"The attention to detail is remarkable. From the locally sourced ingredients to the beautiful plating, you can taste the passion in every bite. The wine pairing was exceptional."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-sky-200 rounded-full flex items-center justify-center text-sky-800 font-semibold text-sm">EW</div>
+                        <div>
+                            <p class="text-sm font-semibold text-zinc-900">Emma Whitfield</p>
+                            <p class="text-xs text-zinc-400">Sommelier &amp; Blogger</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit Us / Contact Section -->
+    <section id="contact" class="py-20 lg:py-28 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+                <div>
+                    <p class="text-amber-600 text-sm font-semibold tracking-[0.2em] uppercase mb-4">Visit Us</p>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-zinc-900 font-medium leading-tight mb-8">Find <em class="text-amber-700">Ember &amp; Oak</em></h2>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-amber-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-zinc-900 uppercase tracking-wide mb-1">Address</h4>
+                                <p class="text-zinc-600">28 Oak Street<br>London, W1D 3QF</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="clock" class="w-5 h-5 text-amber-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-zinc-900 uppercase tracking-wide mb-1">Opening Hours</h4>
+                                <div class="text-zinc-600 text-sm space-y-1">
+                                    <p>Tuesday – Saturday: 12pm – 11pm</p>
+                                    <p>Sunday: 12pm – 9pm</p>
+                                    <p>Monday: <span class="text-red-500 font-medium">Closed</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="phone" class="w-5 h-5 text-amber-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-zinc-900 uppercase tracking-wide mb-1">Phone</h4>
+                                <p class="text-zinc-600">+44 (0)20 7946 0123</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="mail" class="w-5 h-5 text-amber-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-zinc-900 uppercase tracking-wide mb-1">Email</h4>
+                                <p class="text-zinc-600">hello@emberandoak.co.uk</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative rounded-2xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=500&fit=crop" alt="Ember & Oak restaurant ambiance" class="w-full h-full min-h-[400px] object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <a href="demo-restaurant-reservations.html" class="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold rounded-full transition-all duration-200 shadow-lg">
+                            <i data-lucide="calendar" class="w-4 h-4"></i>
+                            Reserve Your Table
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-900 text-stone-400 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-10 mb-12">
+                <div>
+                    <a href="demo-restaurant.html" class="font-serif-italic text-2xl text-amber-400 font-semibold">Ember &amp; Oak</a>
+                    <p class="mt-4 text-sm leading-relaxed">Modern British dining rooted in open-fire tradition and seasonal, locally sourced ingredients.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wide mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="demo-restaurant-menu.html" class="hover:text-amber-400 transition-colors">Our Menu</a></li>
+                        <li><a href="demo-restaurant-reservations.html" class="hover:text-amber-400 transition-colors">Reservations</a></li>
+                        <li><a href="#about" class="hover:text-amber-400 transition-colors">About Us</a></li>
+                        <li><a href="#contact" class="hover:text-amber-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wide mb-4">Follow Us</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-zinc-800 hover:bg-amber-600 rounded-full flex items-center justify-center transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                        <a href="#" class="w-10 h-10 bg-zinc-800 hover:bg-amber-600 rounded-full flex items-center justify-center transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+                        <a href="#" class="w-10 h-10 bg-zinc-800 hover:bg-amber-600 rounded-full flex items-center justify-center transition-colors"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-zinc-800 pt-8 text-center">
+                <p class="text-xs text-zinc-500">✦ This is a demo website created by <a href="https://weblab.solutions" class="text-amber-500 hover:text-amber-400 underline">Weblab Solutions Solutions</a>. Ember &amp; Oak is a fictional business. <a href="portfolio.html" class="text-amber-500 hover:text-amber-400 underline">← Back to portfolio</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let menuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking links
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuOpen = false;
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>

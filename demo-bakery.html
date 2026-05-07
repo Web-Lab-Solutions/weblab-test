@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Crumb Bakery — Example Website by Weblab Solutions Solutions</title>
+    <meta name="description" content="Example bakery website created by Weblab Solutions Solutions to demonstrate our web design capabilities. This is a demo site — Sweet Crumb Bakery is not a real business.">
+    <meta name="robots" content="noindex, nofollow">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        script: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        .font-script { font-family: 'Playfair Display', serif; font-style: italic; }
+    </style>
+</head>
+<body class="bg-amber-50 text-stone-800 antialiased">
+
+    <!-- Demo Banner -->
+    <div class="bg-blue-600 text-white text-center py-2 text-xs font-medium tracking-wide">
+        ✦ This is an example website built by <a href="https://weblab.solutions" class="underline hover:text-blue-200">Weblab Solutions Solutions</a> to demonstrate our work. Sweet Crumb Bakery is not a real business. <a href="portfolio.html" class="underline hover:text-blue-200">← Back to portfolio</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-amber-50/90 border-b border-amber-200 sticky top-0 z-50" style="backdrop-filter:blur(12px)">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="demo-bakery.html" class="font-script text-2xl text-amber-800 hover:text-amber-900 transition-colors">Sweet Crumb</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="demo-bakery-menu.html" class="text-sm font-medium text-stone-600 hover:text-amber-700 transition-colors">Menu</a>
+                <a href="demo-bakery-about.html" class="text-sm font-medium text-stone-600 hover:text-amber-700 transition-colors">About</a>
+                <a href="#visit" class="text-sm font-medium text-stone-600 hover:text-amber-700 transition-colors">Visit Us</a>
+                <a href="#" class="text-sm bg-amber-700 text-white py-2.5 px-5 rounded-lg hover:bg-amber-800 transition-colors font-medium">Order Online</a>
+            </div>
+            <button id="mobBtn" class="md:hidden p-2 text-stone-600 hover:text-amber-700 transition-colors" aria-label="Toggle menu">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <div id="mobMenu" class="md:hidden hidden border-t border-amber-200 bg-amber-50 px-6 py-4 space-y-3">
+            <a href="demo-bakery-menu.html" class="block py-2 text-sm font-medium text-stone-600 hover:text-amber-700 transition-colors">Menu</a>
+            <a href="demo-bakery-about.html" class="block py-2 text-sm font-medium text-stone-600 hover:text-amber-700 transition-colors">About</a>
+            <a href="#visit" class="block py-2 text-sm font-medium text-stone-600 hover:text-amber-700 transition-colors">Visit Us</a>
+            <a href="#" class="block text-sm bg-amber-700 text-white py-2.5 px-5 rounded-lg text-center font-medium">Order Online</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative py-24 md:py-36 bg-gradient-to-br from-amber-100 via-orange-50 to-amber-50 text-center px-6 overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-10 left-10 w-64 h-64 bg-amber-300 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-80 h-80 bg-orange-300 rounded-full blur-3xl"></div>
+        </div>
+        <div class="relative max-w-4xl mx-auto">
+            <p class="text-amber-700 text-sm font-semibold tracking-widest uppercase mb-4">Artisan Bakery & Café</p>
+            <h1 class="font-script text-5xl md:text-7xl lg:text-8xl text-amber-900 mb-6 leading-tight">
+                Freshly baked,<br>lovingly made
+            </h1>
+            <p class="text-stone-600 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+                Artisan breads, pastries, and cakes baked fresh every morning using locally sourced ingredients. Pop in and taste the difference.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="demo-bakery-menu.html" class="inline-flex items-center justify-center gap-2 bg-amber-700 text-white py-3.5 px-8 rounded-lg hover:bg-amber-800 transition-colors font-medium shadow-lg shadow-amber-700/20">
+                    <i data-lucide="book-open" class="w-4 h-4"></i>
+                    See Our Menu
+                </a>
+                <a href="#visit" class="inline-flex items-center justify-center gap-2 bg-white text-amber-800 py-3.5 px-8 rounded-lg hover:bg-amber-50 transition-colors font-medium border border-amber-200">
+                    <i data-lucide="map-pin" class="w-4 h-4"></i>
+                    Find Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Items Section -->
+    <section id="menu" class="py-20 md:py-24 max-w-6xl mx-auto px-6">
+        <div class="text-center mb-14">
+            <p class="text-amber-700 text-sm font-semibold tracking-widest uppercase mb-3">From our ovens</p>
+            <h2 class="font-script text-3xl md:text-4xl text-amber-900 mb-4">Our Favourites</h2>
+            <p class="text-stone-500 max-w-xl mx-auto">Baked fresh every morning using time-honoured recipes and the finest ingredients.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Sourdough -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-amber-100 hover:shadow-md transition-shadow duration-300 group">
+                <div class="relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&h=500&fit=crop" alt="Sourdough bread" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                    <div class="absolute top-3 right-3 bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full">Bestseller</div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-semibold text-lg text-stone-800">Sourdough Loaf</h3>
+                    <p class="text-stone-500 text-sm mt-2 leading-relaxed">48-hour fermented with our wild yeast starter. Crispy golden crust with a soft, tangy crumb.</p>
+                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-amber-100">
+                        <span class="text-amber-700 font-bold text-lg">£4.50</span>
+                        <span class="text-xs text-stone-400">Available daily</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Croissant -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-amber-100 hover:shadow-md transition-shadow duration-300 group">
+                <div class="relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=800&h=500&fit=crop" alt="Butter croissant" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                </div>
+                <div class="p-6">
+                    <h3 class="font-semibold text-lg text-stone-800">Butter Croissant</h3>
+                    <p class="text-stone-500 text-sm mt-2 leading-relaxed">Hand-folded with French butter. Perfectly flaky, golden, and impossibly light.</p>
+                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-amber-100">
+                        <span class="text-amber-700 font-bold text-lg">£2.80</span>
+                        <span class="text-xs text-stone-400">Available daily</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Victoria Sponge -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-amber-100 hover:shadow-md transition-shadow duration-300 group">
+                <div class="relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&h=500&fit=crop" alt="Victoria sponge cake" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                </div>
+                <div class="p-6">
+                    <h3 class="font-semibold text-lg text-stone-800">Victoria Sponge</h3>
+                    <p class="text-stone-500 text-sm mt-2 leading-relaxed">Classic recipe with strawberry jam and fresh whipped cream. A timeless afternoon treat.</p>
+                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-amber-100">
+                        <span class="text-amber-700 font-bold text-lg">£3.20 <span class="text-sm font-normal text-stone-400">/ slice</span></span>
+                        <span class="text-xs text-stone-400">Whole cake £18</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-12">
+            <a href="demo-bakery-menu.html" class="inline-flex items-center gap-2 text-amber-700 font-medium hover:text-amber-800 transition-colors">
+                View full menu
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Preview Section -->
+    <section class="py-20 md:py-24 bg-stone-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=800&h=500&fit=crop" alt="Sweet Crumb Bakery interior" class="rounded-2xl shadow-lg w-full h-80 md:h-96 object-cover" loading="lazy">
+                    <div class="absolute -bottom-4 -right-4 bg-amber-700 text-white rounded-xl py-3 px-6 shadow-lg">
+                        <p class="font-script text-xl">Since 2018</p>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-amber-700 text-sm font-semibold tracking-widest uppercase mb-3">Our Story</p>
+                    <h2 class="font-script text-3xl md:text-4xl text-amber-900 mb-6">Baking with heart<br>since the very beginning</h2>
+                    <p class="text-stone-600 leading-relaxed mb-4">
+                        We're a small, family-run bakery passionate about making real bread the way it should be. Every loaf is hand-shaped, every pastry rolled with care, and every cake decorated with love.
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8">
+                        We source our flour from local mills, use real butter (never margarine), and add zero preservatives — just honest, artisan baking that you can taste.
+                    </p>
+                    <a href="demo-bakery-about.html" class="inline-flex items-center gap-2 bg-amber-700 text-white py-3 px-6 rounded-lg hover:bg-amber-800 transition-colors font-medium">
+                        Read Our Story
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit Us Section -->
+    <section id="visit" class="py-20 md:py-24 max-w-6xl mx-auto px-6">
+        <div class="text-center mb-14">
+            <p class="text-amber-700 text-sm font-semibold tracking-widest uppercase mb-3">Come say hello</p>
+            <h2 class="font-script text-3xl md:text-4xl text-amber-900 mb-4">Visit Us</h2>
+            <p class="text-stone-500 max-w-xl mx-auto">We'd love to see you. Drop by for a coffee, pick up a fresh loaf, or place an order for your next event.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Address -->
+            <div class="bg-white rounded-2xl p-8 border border-amber-100 shadow-sm text-center">
+                <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-5">
+                    <i data-lucide="map-pin" class="w-6 h-6 text-amber-700"></i>
+                </div>
+                <h3 class="font-semibold text-lg text-stone-800 mb-3">Address</h3>
+                <p class="text-stone-600 leading-relaxed">12 Baker Street<br>Flourtown, FT1 2AB</p>
+            </div>
+            <!-- Hours -->
+            <div class="bg-white rounded-2xl p-8 border border-amber-100 shadow-sm text-center">
+                <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-5">
+                    <i data-lucide="clock" class="w-6 h-6 text-amber-700"></i>
+                </div>
+                <h3 class="font-semibold text-lg text-stone-800 mb-3">Opening Hours</h3>
+                <p class="text-stone-600 leading-relaxed">Mon – Fri: 7am – 4pm<br>Sat: 8am – 2pm<br>Sun: Closed</p>
+            </div>
+            <!-- Contact -->
+            <div class="bg-white rounded-2xl p-8 border border-amber-100 shadow-sm text-center">
+                <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-5">
+                    <i data-lucide="phone" class="w-6 h-6 text-amber-700"></i>
+                </div>
+                <h3 class="font-semibold text-lg text-stone-800 mb-3">Get in Touch</h3>
+                <p class="text-stone-600 leading-relaxed">
+                    <a href="tel:01234567890" class="hover:text-amber-700 transition-colors">01234 567 890</a><br>
+                    <a href="mailto:hello@sweetcrumb.example" class="hover:text-amber-700 transition-colors">hello@sweetcrumb.example</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-amber-900 text-amber-200 py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <a href="demo-bakery.html" class="font-script text-2xl text-amber-100">Sweet Crumb</a>
+                    <p class="text-amber-300 text-sm mt-3 leading-relaxed">Artisan breads, pastries, and cakes baked fresh daily in the heart of Flourtown.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-amber-100 mb-3">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="demo-bakery.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="demo-bakery-menu.html" class="hover:text-white transition-colors">Menu</a></li>
+                        <li><a href="demo-bakery-about.html" class="hover:text-white transition-colors">About</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-amber-100 mb-3">Contact</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li>12 Baker Street, Flourtown</li>
+                        <li><a href="tel:01234567890" class="hover:text-white transition-colors">01234 567 890</a></li>
+                        <li><a href="mailto:hello@sweetcrumb.example" class="hover:text-white transition-colors">hello@sweetcrumb.example</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-amber-800 pt-8 text-center text-sm text-amber-400">
+                <p>© 2025 Sweet Crumb Bakery — <strong class="text-amber-300">This is a demo website built by <a href="https://weblab.solutions" class="underline text-white hover:text-amber-200">Weblab Solutions Solutions</a></strong>. Sweet Crumb Bakery is not a real business.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        document.getElementById('mobBtn').addEventListener('click', function() {
+            document.getElementById('mobMenu').classList.toggle('hidden');
+        });
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobMenu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('mobMenu').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

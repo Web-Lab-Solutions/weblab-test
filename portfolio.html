@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Design Portfolio | Example Projects | Weblab Solutions</title>
+    <meta name="description" content="See example websites created by Weblab Solutions demonstrating different styles for bakeries, fitness studios, plumbing services, photography businesses, and restaurants.">
+    <meta name="keywords" content="web design portfolio, website design examples, demo websites, example business websites, restaurant website, Weblab Solutions portfolio">
+    <meta name="robots" content="index, follow">
+    <link rel="alternate" hreflang="en-gb" href="https://weblab.solutions/">
+    <link rel="alternate" hreflang="en" href="https://weblab.solutions/">
+    <link rel="canonical" href="https://weblab.solutions/portfolio.html">
+    <meta property="og:type" content="website"><meta property="og:url" content="https://weblab.solutions/portfolio.html"><meta property="og:title" content="Website Design Portfolio | Example Projects | Weblab Solutions"><meta property="og:description" content="See example websites created by Weblab Solutions for various business types."><meta property="og:site_name" content="Weblab Solutions">
+    <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Website Design Portfolio | Example Projects | Weblab Solutions"><meta name="twitter:description" content="See example websites created by Weblab Solutions for various business types.">
+    <script src="https://cdn.tailwindcss.com"></script><script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif'],serif:['Playfair Display','serif']}}}}</script>
+    <style>
+        html{scroll-behavior:smooth}
+        body{font-family:'Inter',sans-serif;position:relative}
+        .font-serif-display{font-family:'Playfair Display',serif}
+        .gradient-text{background:linear-gradient(135deg,#818cf8,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+        .fade-up.visible{opacity:1;transform:translateY(0)}
+        .delay-1{transition-delay:.1s}
+        .delay-2{transition-delay:.2s}
+        .delay-3{transition-delay:.3s}
+        .delay-4{transition-delay:.4s}
+        .delay-5{transition-delay:.5s}
+        .glass-card{background:rgba(15,23,42,.5);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(148,163,184,.1);transition:border-color .3s ease,box-shadow .3s ease}
+        .glass-card:hover{border-color:rgba(99,102,241,.25);box-shadow:0 8px 40px -8px rgba(99,102,241,.15)}
+        .nav-link{position:relative}
+        .nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:linear-gradient(90deg,#818cf8,#a78bfa);border-radius:1px;transition:width .3s ease}
+        .nav-link:hover::after,.nav-link.active::after{width:100%}
+        .shimmer{position:relative;overflow:hidden}
+        .shimmer::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent);transition:left .5s}
+        .shimmer:hover::before{left:100%}
+
+        /* Scroll progress — indigo to violet */
+        #scroll-progress{position:fixed;top:0;left:0;height:2px;z-index:100;background:linear-gradient(90deg,#6366f1,#a78bfa);width:0%;transition:width .1s linear;border-radius:0 2px 2px 0}
+
+        /* Portfolio card hover */
+        .portfolio-card{transition:transform .3s ease,box-shadow .3s ease}
+        .portfolio-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px -8px rgba(99,102,241,.2)}
+    </style>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://weblab.solutions/"},
+            {"@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://weblab.solutions/portfolio.html"}
+        ]
+    }
+    </script>
+</head>
+<body class="bg-[#020617] text-white antialiased">
+
+    <div id="scroll-progress"></div>
+
+    <nav class="sticky top-0 z-50 bg-[#020617]/80 border-b border-white/[0.06]" style="backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2.5" aria-label="Weblab Solutions Home">
+                <div class="w-9 h-9 bg-gradient-to-br from-indigo-500 to-violet-400 rounded-xl flex items-center justify-center">
+                    <i data-lucide="code-2" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="text-lg font-semibold tracking-tight">Weblab <span class="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">Solutions</span></span>
+            </a>
+            <div class="hidden lg:flex items-center gap-10 flex-1 justify-center">
+                <a href="index.html" class="nav-link text-sm text-slate-400 hover:text-white transition-colors">Home</a>
+                <a href="services.html" class="nav-link text-sm text-slate-400 hover:text-white transition-colors">Services</a>
+                <a href="portfolio.html" class="nav-link active text-sm text-white font-medium">Portfolio</a>
+                <a href="pricing.html" class="nav-link text-sm text-slate-400 hover:text-white transition-colors">Pricing</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="contact.html" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-violet-500 text-white py-2.5 px-5 text-sm font-medium rounded-full shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 transition-all duration-300">Get Started</a>
+                <button id="mobileMenuBtn" class="lg:hidden p-2 text-slate-400 hover:text-white transition-colors" aria-label="Open menu"><i data-lucide="menu" class="w-6 h-6"></i></button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="lg:hidden hidden border-t border-white/5">
+            <div class="px-6 py-4 space-y-1">
+                <a href="index.html" class="block py-2.5 text-sm text-slate-400">Home</a>
+                <a href="services.html" class="block py-2.5 text-sm text-slate-400">Services</a>
+                <a href="portfolio.html" class="block py-2.5 text-sm text-white font-medium">Portfolio</a>
+                <a href="pricing.html" class="block py-2.5 text-sm text-slate-400">Pricing</a>
+                <a href="contact.html" class="block py-2.5 text-sm font-medium text-center bg-gradient-to-r from-indigo-600 to-violet-500 text-white rounded-full mt-3">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="py-24 bg-[#020617] relative overflow-hidden">
+        <!-- Subtle indigo ambient glow -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-indigo-500/[0.06] rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+            <span class="fade-up text-xs font-bold tracking-widest uppercase text-indigo-400 mb-4 block">Our Work</span>
+            <h1 class="fade-up delay-1 text-4xl sm:text-5xl font-semibold tracking-tight mb-6">Example <span class="font-serif-display italic gradient-text">projects</span></h1>
+            <p class="fade-up delay-2 text-slate-400 max-w-2xl mx-auto leading-relaxed text-lg">Below are demonstration websites we've built to showcase different styles and business types. Click any project to view the full demo site.</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="py-24 bg-[#020617] relative">
+        <!-- Subtle background glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/[0.04] rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Demo 1: Bakery -->
+                <a href="demo-bakery.html" class="fade-up delay-1 portfolio-card group overflow-hidden rounded-2xl glass-card block">
+                    <div class="aspect-[16/10] overflow-hidden bg-slate-900 relative">
+                        <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=800&h=500&fit=crop&auto=format" alt="Artisan bakery interior with wooden shelves filled with fresh bread and pastries" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" loading="lazy" width="800" height="500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold tracking-widest uppercase text-indigo-400 mb-2 block">Example — Bakery & Café</span>
+                        <h2 class="text-xl font-semibold mb-2 group-hover:text-indigo-300 transition-colors">Sweet Crumb Bakery</h2>
+                        <p class="text-sm text-slate-400">Warm, inviting design with full menu, about story, and visit-us page. Multi-page site for local food businesses.</p>
+                        <span class="inline-flex items-center gap-1 text-sm text-indigo-400 mt-4 font-medium group-hover:gap-2 transition-all">View demo <i data-lucide="external-link" class="w-3 h-3"></i></span>
+                    </div>
+                </a>
+
+                <!-- Demo 2: Fitness -->
+                <a href="demo-fitness.html" class="fade-up delay-2 portfolio-card group overflow-hidden rounded-2xl glass-card block">
+                    <div class="aspect-[16/10] overflow-hidden bg-slate-900 relative">
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=500&fit=crop&auto=format" alt="Modern gym interior with professional fitness equipment and dramatic lighting" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" loading="lazy" width="800" height="500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold tracking-widest uppercase text-indigo-400 mb-2 block">Example — Fitness Studio</span>
+                        <h2 class="text-xl font-semibold mb-2 group-hover:text-indigo-300 transition-colors">Iron Peak Fitness</h2>
+                        <p class="text-sm text-slate-400">Bold, high-energy design with class schedule, membership plans, and signup page. Multi-page gym website.</p>
+                        <span class="inline-flex items-center gap-1 text-sm text-indigo-400 mt-4 font-medium group-hover:gap-2 transition-all">View demo <i data-lucide="external-link" class="w-3 h-3"></i></span>
+                    </div>
+                </a>
+
+                <!-- Demo 3: Plumbing -->
+                <a href="demo-plumbing.html" class="fade-up delay-3 portfolio-card group overflow-hidden rounded-2xl glass-card block">
+                    <div class="aspect-[16/10] overflow-hidden bg-slate-900 relative">
+                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&h=500&fit=crop&auto=format" alt="Professional plumber at work in a modern bathroom" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" loading="lazy" width="800" height="500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold tracking-widest uppercase text-indigo-400 mb-2 block">Example — Plumbing & Heating</span>
+                        <h2 class="text-xl font-semibold mb-2 group-hover:text-indigo-300 transition-colors">FlowFix Plumbing</h2>
+                        <p class="text-sm text-slate-400">Clean, trustworthy design with detailed services, service areas, and trust signals. Multi-page trades site.</p>
+                        <span class="inline-flex items-center gap-1 text-sm text-indigo-400 mt-4 font-medium group-hover:gap-2 transition-all">View demo <i data-lucide="external-link" class="w-3 h-3"></i></span>
+                    </div>
+                </a>
+
+                <!-- Demo 4: Photography -->
+                <a href="demo-photography.html" class="fade-up delay-4 portfolio-card group overflow-hidden rounded-2xl glass-card block">
+                    <div class="aspect-[16/10] overflow-hidden bg-slate-900 relative">
+                        <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=800&h=500&fit=crop&auto=format" alt="Professional photography studio with camera equipment and creative workspace" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" loading="lazy" width="800" height="500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold tracking-widest uppercase text-indigo-400 mb-2 block">Example — Photography Studio</span>
+                        <h2 class="text-xl font-semibold mb-2 group-hover:text-indigo-300 transition-colors">Lens & Light Studio</h2>
+                        <p class="text-sm text-slate-400">Minimalist, image-focused design with filterable gallery, about page, and pricing packages. Multi-page portfolio site.</p>
+                        <span class="inline-flex items-center gap-1 text-sm text-indigo-400 mt-4 font-medium group-hover:gap-2 transition-all">View demo <i data-lucide="external-link" class="w-3 h-3"></i></span>
+                    </div>
+                </a>
+
+                <!-- Demo 5: Restaurant -->
+                <a href="demo-restaurant.html" class="fade-up delay-5 portfolio-card group overflow-hidden rounded-2xl glass-card block">
+                    <div class="aspect-[16/10] overflow-hidden bg-slate-900 relative">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=500&fit=crop&auto=format" alt="Elegant restaurant interior with warm ambient lighting and candlelit tables" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" loading="lazy" width="800" height="500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold tracking-widest uppercase text-indigo-400 mb-2 block">Example — Fine Dining Restaurant</span>
+                        <h2 class="text-xl font-semibold mb-2 group-hover:text-indigo-300 transition-colors">Ember & Oak</h2>
+                        <p class="text-sm text-slate-400">Elegant, upscale design with full menu, online reservations, and private dining. Multi-page restaurant site.</p>
+                        <span class="inline-flex items-center gap-1 text-sm text-indigo-400 mt-4 font-medium group-hover:gap-2 transition-all">View demo <i data-lucide="external-link" class="w-3 h-3"></i></span>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- Note -->
+            <div class="fade-up mt-12 text-center">
+                <p class="text-sm text-slate-500">These are demonstration websites built to showcase our capabilities. <a href="contact.html" class="text-indigo-400 hover:text-indigo-300 transition-colors">Get in touch</a> to discuss a website tailored to your business.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-[#020617] border-t border-white/5 relative overflow-hidden">
+        <!-- Subtle indigo ambient glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-indigo-500/[0.06] rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="max-w-3xl mx-auto px-6 text-center relative z-10">
+            <h2 class="fade-up text-3xl sm:text-4xl font-semibold tracking-tight mb-4">Like what you <span class="font-serif-display italic gradient-text">see</span>?</h2>
+            <p class="fade-up delay-1 text-slate-400 mb-8 text-lg leading-relaxed">We can build a website like any of these — tailored to your brand and business. <a href="contact.html" class="text-indigo-400 hover:text-indigo-300 transition-colors underline underline-offset-4 decoration-indigo-500/30 hover:decoration-indigo-400/60">Tell us about your project</a>.</p>
+            <a href="contact.html" class="fade-up delay-2 shimmer inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-violet-500 text-white py-3.5 px-10 text-sm font-semibold rounded-full shadow-xl shadow-indigo-500/20 hover:shadow-indigo-500/40 hover:scale-105 transition-all duration-300">Get In Touch <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+        </div>
+    </section>
+
+    <footer class="bg-[#020617] pt-16 pb-8 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div><a href="index.html" class="flex items-center gap-2.5 mb-4" aria-label="Weblab Solutions Home"><div class="w-9 h-9 bg-gradient-to-br from-indigo-500 to-violet-400 rounded-xl flex items-center justify-center"><i data-lucide="code-2" class="w-5 h-5 text-white"></i></div><span class="text-lg font-semibold tracking-tight">Weblab <span class="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">Solutions</span></span></a><p class="text-sm text-slate-500 leading-relaxed">Professional web design and website creation services.</p></div>
+                <div><h4 class="text-sm font-semibold uppercase tracking-wider mb-4 text-slate-300">Pages</h4><ul class="space-y-2.5"><li><a href="index.html" class="text-sm text-slate-500 hover:text-white transition-colors">Home</a></li><li><a href="services.html" class="text-sm text-slate-500 hover:text-white transition-colors">Services</a></li><li><a href="portfolio.html" class="text-sm text-slate-500 hover:text-white transition-colors">Portfolio</a></li><li><a href="pricing.html" class="text-sm text-slate-500 hover:text-white transition-colors">Pricing</a></li><li><a href="contact.html" class="text-sm text-slate-500 hover:text-white transition-colors">Contact</a></li></ul></div>
+                <div><h4 class="text-sm font-semibold uppercase tracking-wider mb-4 text-slate-300">Services</h4><ul class="space-y-2.5"><li><a href="services.html" class="text-sm text-slate-500 hover:text-white transition-colors">Web Design</a></li><li><a href="services.html" class="text-sm text-slate-500 hover:text-white transition-colors">Web Development</a></li><li><a href="services.html" class="text-sm text-slate-500 hover:text-white transition-colors">Hosting & Domains</a></li><li><a href="services.html" class="text-sm text-slate-500 hover:text-white transition-colors">SEO & Support</a></li></ul></div>
+                <div><h4 class="text-sm font-semibold uppercase tracking-wider mb-4 text-slate-300">Contact</h4><ul class="space-y-2.5"><li><a href="mailto:Web.Labs@outlook.com" class="text-sm text-slate-500 hover:text-white transition-colors">Web.Labs@outlook.com</a></li><li><a href="https://weblab.solutions" class="text-sm text-slate-500 hover:text-white transition-colors">weblab.solutions</a></li><li><span class="text-sm text-slate-500">Mon – Fri: 9:00 – 17:00</span></li></ul></div>
+            </div>
+            <div class="border-t border-white/5 pt-8 text-center"><p class="text-xs text-slate-600">&copy; 2025 Weblab Solutions. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();document.getElementById('mobileMenuBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.toggle('hidden')});const observer=new IntersectionObserver(e=>{e.forEach(t=>{if(t.isIntersecting){t.target.classList.add('visible');observer.unobserve(t.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));window.addEventListener('scroll',()=>{const scrollTop=document.documentElement.scrollTop;const scrollHeight=document.documentElement.scrollHeight-document.documentElement.clientHeight;const progress=(scrollTop/scrollHeight)*100;document.getElementById('scroll-progress').style.width=progress+'%'});</script>
+</body>
+</html>

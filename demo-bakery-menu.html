@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu — Sweet Crumb Bakery | Example Website by Weblab Solutions Solutions</title>
+    <meta name="description" content="Browse the full menu at Sweet Crumb Bakery — artisan breads, pastries, cakes, and drinks. Example website by Weblab Solutions Solutions.">
+    <meta name="robots" content="noindex, nofollow">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        script: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        .font-script { font-family: 'Playfair Display', serif; font-style: italic; }
+    </style>
+</head>
+<body class="bg-amber-50 text-stone-800 antialiased">
+
+    <!-- Demo Banner -->
+    <div class="bg-blue-600 text-white text-center py-2 text-xs font-medium tracking-wide">
+        ✦ This is an example website built by <a href="https://weblab.solutions" class="underline hover:text-blue-200">Weblab Solutions Solutions</a> to demonstrate our work. Sweet Crumb Bakery is not a real business. <a href="portfolio.html" class="underline hover:text-blue-200">← Back to portfolio</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-amber-50/90 border-b border-amber-200 sticky top-0 z-50" style="backdrop-filter:blur(12px)">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="demo-bakery.html" class="font-script text-2xl text-amber-800 hover:text-amber-900 transition-colors">Sweet Crumb</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="demo-bakery-menu.html" class="text-sm font-medium text-amber-700 border-b-2 border-amber-700 pb-0.5 transition-colors">Menu</a>
+                <a href="demo-bakery-about.html" class="text-sm font-medium text-stone-600 hover:text-amber-700 transition-colors">About</a>
+                <a href="demo-bakery.html#visit" class="text-sm font-medium text-stone-600 hover:text-amber-700 transition-colors">Visit Us</a>
+                <a href="#" class="text-sm bg-amber-700 text-white py-2.5 px-5 rounded-lg hover:bg-amber-800 transition-colors font-medium">Order Online</a>
+            </div>
+            <button id="mobBtn" class="md:hidden p-2 text-stone-600 hover:text-amber-700 transition-colors" aria-label="Toggle menu">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <div id="mobMenu" class="md:hidden hidden border-t border-amber-200 bg-amber-50 px-6 py-4 space-y-3">
+            <a href="demo-bakery-menu.html" class="block py-2 text-sm font-medium text-amber-700">Menu</a>
+            <a href="demo-bakery-about.html" class="block py-2 text-sm font-medium text-stone-600 hover:text-amber-700 transition-colors">About</a>
+            <a href="demo-bakery.html#visit" class="block py-2 text-sm font-medium text-stone-600 hover:text-amber-700 transition-colors">Visit Us</a>
+            <a href="#" class="block text-sm bg-amber-700 text-white py-2.5 px-5 rounded-lg text-center font-medium">Order Online</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="py-16 md:py-20 bg-gradient-to-br from-amber-100 via-orange-50 to-amber-50 text-center px-6">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-amber-700 text-sm font-semibold tracking-widest uppercase mb-3">Handcrafted with love</p>
+            <h1 class="font-script text-4xl md:text-6xl text-amber-900 mb-4">Our Menu</h1>
+            <p class="text-stone-600 text-lg max-w-2xl mx-auto">Everything baked fresh daily. Browse our selection of artisan breads, flaky pastries, indulgent cakes, and warming drinks.</p>
+        </div>
+    </section>
+
+    <!-- Menu Sections -->
+    <main class="max-w-6xl mx-auto px-6 py-16 space-y-20">
+
+        <!-- Breads -->
+        <section id="breads">
+            <div class="relative rounded-2xl overflow-hidden mb-10">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&h=500&fit=crop" alt="Fresh breads" class="w-full h-56 md:h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-900/70 via-stone-900/20 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8">
+                    <span class="bg-amber-600 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Category</span>
+                    <h2 class="font-script text-3xl md:text-4xl text-white mt-3">Breads</h2>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white rounded-xl p-6 border border-amber-100 flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-semibold text-lg text-stone-800">Sourdough Loaf</h3>
+                        <p class="text-stone-500 text-sm mt-1">48-hour fermented with our wild yeast starter. Crispy golden crust, soft tangy crumb.</p>
+                    </div>
+                    <span class="text-amber-700 font-bold text-lg whitespace-nowrap">£4.50</span>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-amber-100 flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-semibold text-lg text-stone-800">Rye Loaf</h3>
+                        <p class="text-stone-500 text-sm mt-1">Dense, hearty rye with caraway seeds. Perfect for sandwiches and ploughman's lunches.</p>
+                    </div>
+                    <span class="text-amber-700 font-bold text-lg whitespace-nowrap">£4.00</span>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-amber-100 flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-semibold text-lg text-stone-800">Ciabatta</h3>
+                        <p class="text-stone-500 text-sm mt-1">Light, airy Italian-style bread with an open crumb. Ideal for dipping in olive oil.</p>
+                    </div>
+                    <span class="text-amber-700 font-bold text-lg whitespace-nowrap">£3.80</span>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-amber-100 flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-semibold text-lg text-stone-800">Whole Wheat Loaf</h3>
+                        <p class="text-stone-500 text-sm mt-1">Nutty, wholesome, and packed with fibre. Made with stone-ground wholemeal flour.</p>
+                    </div>
+                    <span class="text-amber-700 font-bold text-lg whitespace-nowrap">£3.50</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pastries -->
+        <section id="pastries">
+            <div class="relative rounded-2xl overflow-hidden mb-10">
+                <img src="https://images.unsplash.com/photo-1495195134817-aeb325a55b65?w=800&h=500&fit=crop" alt="Fresh pastries" class="w-full h-56 md:h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-900/70 via-stone-900/20 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8">
+                    <span class="bg-amber-600 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Category</span>
+                    <h2 class="font-script text-3xl md:text-4xl text-white mt-3">Pastries</h2>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white rounded-xl p-6 border border-amber-100 flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-semibold text-lg text-stone-800">Butter Croissant</h3>
+                        <p class="text-stone-500 text-sm mt-1">Hand-folded with French butter. Perfectly flaky, golden, and impossibly light.</p>
+                    </div>
+                    <span class="text-amber-700 font-bold text-lg whitespace-nowrap">£2.80</span>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-amber-100 flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-semibold text-lg text-stone-800">Pain au Chocolat</h3>
+                        <p class="text-stone-500 text-sm mt-1">Buttery puff pastry wrapped around two bars of rich Belgian chocolate.</p>
+                    </div>
+                    <span class="text-amber-700 font-bold text-lg whitespace-nowrap">£3.10</span>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-amber-100 flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-semibold text-lg text-stone-800">Danish Pastry</h3>
+                        <p class="text-stone-500 text-sm mt-1">Filled with seasonal fruits, sweet cream cheese, and a light vanilla glaze.</p>
+                    </div>
+                    <span class="text-amber-700 font-bold text-lg whitespace-nowrap">£3.20</span>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-amber-100 flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-semibold text-lg text-stone-800">Cinnamon Roll</h3>
+                        <p class="text-stone-500 text-sm mt-1">Soft, pillowy swirl of spiced dough with a generous swirl of cinnamon sugar and cream cheese frosting.</p>
+                    </div>
+                    <span class="text-amber-700 font-bold text-lg whitespace-nowrap">£3.50</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cakes -->
+        <section id="cakes">
+            <div class="relative rounded-2xl overflow-hidden mb-10">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&h=500&fit=crop" alt="Cakes" class="w-full h-56 md:h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-900/70 via-stone-900/20 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8">
+                    <span class="bg-amber-600 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Category</span>
+                    <h2 class="font-script text-3xl md:text-4xl text-white mt-3">Cakes</h2>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white rounded-xl p-6 border border-amber-100 flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-semibold text-lg text-stone-800">Victoria Sponge</h3>
+                        <p class="text-stone-500 text-sm mt-1">Light vanilla sponge layered with strawberry jam and fresh whipped cream. A British classic.</p>
+                    </div>
+                    <div class="text-right whitespace-nowrap">
+                        <span class="text-amber-700 font-bold text-lg block">£3.20</span>
+                        <span class="text-stone-400 text-xs">/ slice</span>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-amber-100 flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-semibold text-lg text-stone-800">Carrot Cake</h3>
+                        <p class="text-stone-500 text-sm mt-1">Moist spiced carrot cake topped with a thick layer of cream cheese frosting and walnuts.</p>
+                    </div>
+                    <div class="text-right whitespace-nowrap">
+                        <span class="text-amber-700 font-bold text-lg block">£3.50</span>
+                        <span class="text-stone-400 text-xs">/ slice</span>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-amber-100 flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-semibold text-lg text-stone-800">Lemon Drizzle</h3>
+                        <p class="text-stone-500 text-sm mt-1">Zesty lemon sponge drenched in a tangy citrus glaze. Refreshing and light.</p>
+                    </div>
+                    <div class="text-right whitespace-nowrap">
+                        <span class="text-amber-700 font-bold text-lg block">£3.00</span>
+                        <span class="text-stone-400 text-xs">/ slice</span>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-amber-100 flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-semibold text-lg text-stone-800">Chocolate Fudge Cake</h3>
+                        <p class="text-stone-500 text-sm mt-1">Rich, indulgent chocolate sponge with a glossy ganache frosting. Pure decadence.</p>
+                    </div>
+                    <div class="text-right whitespace-nowrap">
+                        <span class="text-amber-700 font-bold text-lg block">£3.80</span>
+                        <span class="text-stone-400 text-xs">/ slice</span>
+                    </div>
+                </div>
+            </div>
+            <p class="text-stone-500 text-sm mt-6 text-center">Whole cakes available to order — ask in store or call us on <a href="tel:01234567890" class="text-amber-700 hover:underline">01234 567 890</a>.</p>
+        </section>
+
+        <!-- Drinks -->
+        <section id="drinks">
+            <div class="relative rounded-2xl overflow-hidden mb-10">
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=500&fit=crop" alt="Coffee and drinks" class="w-full h-56 md:h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-900/70 via-stone-900/20 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8">
+                    <span class="bg-amber-600 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Category</span>
+                    <h2 class="font-script text-3xl md:text-4xl text-white mt-3">Drinks</h2>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white rounded-xl p-6 border border-amber-100 flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-semibold text-lg text-stone-800">Filter Coffee</h3>
+                        <p class="text-stone-500 text-sm mt-1">Single-origin beans brewed fresh throughout the day. Smooth, aromatic, and full-bodied.</p>
+                    </div>
+                    <div class="text-right whitespace-nowrap">
+                        <span class="text-amber-700 font-bold text-lg block">£2.50</span>
+                        <span class="text-stone-400 text-xs">/ regular</span>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-amber-100 flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-semibold text-lg text-stone-800">Flat White</h3>
+                        <p class="text-stone-500 text-sm mt-1">Velvety micro-foamed milk over a double espresso. Smooth and creamy.</p>
+                    </div>
+                    <div class="text-right whitespace-nowrap">
+                        <span class="text-amber-700 font-bold text-lg block">£3.20</span>
+                        <span class="text-stone-400 text-xs">/ regular</span>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-amber-100 flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-semibold text-lg text-stone-800">Tea</h3>
+                        <p class="text-stone-500 text-sm mt-1">Selection of premium loose-leaf teas. Ask our team for today's picks.</p>
+                    </div>
+                    <div class="text-right whitespace-nowrap">
+                        <span class="text-amber-700 font-bold text-lg block">£2.20</span>
+                        <span class="text-stone-400 text-xs">/ pot</span>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-amber-100 flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-semibold text-lg text-stone-800">Hot Chocolate</h3>
+                        <p class="text-stone-500 text-sm mt-1">Rich Belgian chocolate melted into steamed milk, topped with whipped cream and cocoa.</p>
+                    </div>
+                    <div class="text-right whitespace-nowrap">
+                        <span class="text-amber-700 font-bold text-lg block">£3.50</span>
+                        <span class="text-stone-400 text-xs">/ regular</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Allergens Notice -->
+        <section class="bg-amber-100/60 rounded-2xl p-8 md:p-10">
+            <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-amber-200 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <i data-lucide="info" class="w-5 h-5 text-amber-800"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg text-amber-900 mb-2">Allergen Information</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">
+                        Many of our products contain or may contain allergens including wheat, gluten, dairy, eggs, nuts, and soy. Please speak to a member of our team if you have any dietary requirements or allergies — we're happy to help you find the perfect treat. Full allergen information is available in store.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- CTA -->
+    <section class="py-16 bg-amber-800 text-center px-6">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="font-script text-3xl md:text-4xl text-white mb-4">Hungry yet?</h2>
+            <p class="text-amber-200 text-lg mb-8">Visit us at 12 Baker Street or place an order for collection.</p>
+            <a href="#" class="inline-flex items-center gap-2 bg-white text-amber-800 py-3.5 px-8 rounded-lg hover:bg-amber-50 transition-colors font-medium shadow-lg">
+                <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                Order Online
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-amber-900 text-amber-200 py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <a href="demo-bakery.html" class="font-script text-2xl text-amber-100">Sweet Crumb</a>
+                    <p class="text-amber-300 text-sm mt-3 leading-relaxed">Artisan breads, pastries, and cakes baked fresh daily in the heart of Flourtown.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-amber-100 mb-3">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="demo-bakery.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="demo-bakery-menu.html" class="hover:text-white transition-colors">Menu</a></li>
+                        <li><a href="demo-bakery-about.html" class="hover:text-white transition-colors">About</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-amber-100 mb-3">Contact</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li>12 Baker Street, Flourtown</li>
+                        <li><a href="tel:01234567890" class="hover:text-white transition-colors">01234 567 890</a></li>
+                        <li><a href="mailto:hello@sweetcrumb.example" class="hover:text-white transition-colors">hello@sweetcrumb.example</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-amber-800 pt-8 text-center text-sm text-amber-400">
+                <p>© 2025 Sweet Crumb Bakery — <strong class="text-amber-300">This is a demo website built by <a href="https://weblab.solutions" class="underline text-white hover:text-amber-200">Weblab Solutions Solutions</a></strong>. Sweet Crumb Bakery is not a real business.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        document.getElementById('mobBtn').addEventListener('click', function() {
+            document.getElementById('mobMenu').classList.toggle('hidden');
+        });
+        document.querySelectorAll('#mobMenu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('mobMenu').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

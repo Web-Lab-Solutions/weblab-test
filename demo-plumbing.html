@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>FlowFix Plumbing | Emergency Plumbers in Watford & Hertfordshire</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-white text-slate-800">
+
+    <!-- Demo Banner -->
+    <div class="bg-blue-600 text-white text-center py-2 text-xs font-medium tracking-wide">✦ Example website built by <a href="https://weblab.solutions" class="underline hover:text-blue-200">Weblab Solutions Solutions</a>. FlowFix Plumbing is not a real business. <a href="portfolio.html" class="underline hover:text-blue-200">← Back to portfolio</a></div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="demo-plumbing.html" class="flex items-center gap-2">
+                    <i data-lucide="droplets" class="w-8 h-8 text-blue-700"></i>
+                    <span class="text-2xl font-bold text-blue-700">FlowFix</span>
+                </a>
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="demo-plumbing-services.html" class="text-slate-600 hover:text-blue-700 font-medium transition">Services</a>
+                    <a href="demo-plumbing-areas.html" class="text-slate-600 hover:text-blue-700 font-medium transition">Areas</a>
+                    <a href="#reviews" class="text-slate-600 hover:text-blue-700 font-medium transition">Reviews</a>
+                    <a href="tel:01234567890" class="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white font-semibold px-5 py-2.5 rounded-lg transition">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                        01234 567 890
+                    </a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 hover:text-blue-700">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 pb-4">
+            <div class="px-4 pt-2 space-y-2">
+                <a href="demo-plumbing-services.html" class="block py-2 px-3 text-slate-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg font-medium transition">Services</a>
+                <a href="demo-plumbing-areas.html" class="block py-2 px-3 text-slate-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg font-medium transition">Areas</a>
+                <a href="#reviews" class="block py-2 px-3 text-slate-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg font-medium transition">Reviews</a>
+                <a href="tel:01234567890" class="flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 text-white font-semibold px-5 py-3 rounded-lg transition mt-2">
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                    01234 567 890
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-blue-700 to-blue-800 text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm rounded-full px-4 py-1.5 text-sm font-medium mb-6">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                        Gas Safe Registered
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+                        Emergency plumber?<br>We're on our way.
+                    </h1>
+                    <p class="text-blue-100 text-lg md:text-xl mb-8 leading-relaxed">
+                        Trusted local plumbers serving Watford and Hertfordshire for over 15 years. Fast response, fair prices, quality guaranteed.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="tel:01234567890" class="inline-flex items-center gap-3 bg-white text-blue-700 hover:bg-blue-50 font-bold px-8 py-4 rounded-xl text-lg shadow-lg hover:shadow-xl transition-all">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                            Call Now
+                        </a>
+                        <a href="demo-plumbing-services.html" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-4 rounded-xl text-lg transition-all border border-blue-500">
+                            View Services
+                        </a>
+                    </div>
+                    <div class="mt-8 inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm rounded-lg px-5 py-3">
+                        <i data-lucide="clock" class="w-5 h-5 text-blue-200"></i>
+                        <span class="text-blue-100 text-sm font-medium">Average response: <strong class="text-white">45 minutes</strong></span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&h=500&fit=crop" alt="FlowFix plumber at work" class="rounded-2xl shadow-2xl w-full h-80 lg:h-96 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Signals -->
+    <section class="bg-slate-50 border-y border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                <div class="flex flex-col items-center text-center gap-2">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                        <i data-lucide="shield-check" class="w-6 h-6 text-blue-700"></i>
+                    </div>
+                    <span class="font-semibold text-slate-800 text-sm">Gas Safe Registered</span>
+                </div>
+                <div class="flex flex-col items-center text-center gap-2">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                        <i data-lucide="clock" class="w-6 h-6 text-blue-700"></i>
+                    </div>
+                    <span class="font-semibold text-slate-800 text-sm">24/7 Available</span>
+                </div>
+                <div class="flex flex-col items-center text-center gap-2">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                        <i data-lucide="pound-sterling" class="w-6 h-6 text-blue-700"></i>
+                    </div>
+                    <span class="font-semibold text-slate-800 text-sm">No Callout Fee</span>
+                </div>
+                <div class="flex flex-col items-center text-center gap-2">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                        <i data-lucide="badge-check" class="w-6 h-6 text-blue-700"></i>
+                    </div>
+                    <span class="font-semibold text-slate-800 text-sm">12 Month Guarantee</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview -->
+    <section class="py-16 md:py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-3">What We Do</h2>
+                <p class="text-slate-500 text-lg max-w-2xl mx-auto">From dripping taps to full bathroom installations, FlowFix has you covered with expert plumbing services.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service Card 1 -->
+                <a href="demo-plumbing-services.html" class="group bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-xl hover:border-blue-200 transition-all">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-5 group-hover:bg-blue-700 transition-colors">
+                        <i data-lucide="wrench" class="w-7 h-7 text-blue-700 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">Plumbing Repairs</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Leaking pipes, blocked drains, dripping taps and all general plumbing repairs.</p>
+                </a>
+                <!-- Service Card 2 -->
+                <a href="demo-plumbing-services.html" class="group bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-xl hover:border-blue-200 transition-all">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-5 group-hover:bg-blue-700 transition-colors">
+                        <i data-lucide="flame" class="w-7 h-7 text-blue-700 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">Heating & Boilers</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Boiler repairs, servicing, installations and full central heating systems.</p>
+                </a>
+                <!-- Service Card 3 -->
+                <a href="demo-plumbing-services.html" class="group bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-xl hover:border-blue-200 transition-all">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-5 group-hover:bg-blue-700 transition-colors">
+                        <i data-lucide="bath" class="w-7 h-7 text-blue-700 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">Bathrooms</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Full bathroom installations, refits, showers, tiling and underfloor heating.</p>
+                </a>
+                <!-- Service Card 4 -->
+                <a href="demo-plumbing-services.html" class="group bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-xl hover:border-blue-200 transition-all">
+                    <div class="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center mb-5 group-hover:bg-red-600 transition-colors">
+                        <i data-lucide="siren" class="w-7 h-7 text-red-600 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">Emergency Callout</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">24/7 emergency response for burst pipes, gas leaks, flooding and more.</p>
+                </a>
+            </div>
+            <div class="text-center mt-10">
+                <a href="demo-plumbing-services.html" class="inline-flex items-center gap-2 text-blue-700 hover:text-blue-800 font-semibold transition">
+                    View all services
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why FlowFix -->
+    <section class="py-16 md:py-20 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1581783898377-1c85bf937427?w=800&h=500&fit=crop" alt="Professional plumbing tools" class="rounded-2xl shadow-lg w-full h-80 object-cover">
+                </div>
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Why Choose FlowFix?</h2>
+                    <div class="space-y-5">
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="timer" class="w-5 h-5 text-blue-700"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-slate-900 mb-1">Rapid Response</h3>
+                                <p class="text-slate-500 text-sm">Average arrival time of just 45 minutes for emergency calls across Hertfordshire.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="users" class="w-5 h-5 text-blue-700"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-slate-900 mb-1">Experienced Team</h3>
+                                <p class="text-slate-500 text-sm">All our plumbers are fully qualified, insured and have a minimum of 10 years' experience.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="receipt" class="w-5 h-5 text-blue-700"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-slate-900 mb-1">Transparent Pricing</h3>
+                                <p class="text-slate-500 text-sm">No hidden charges. We provide a clear quote before any work begins.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="shield" class="w-5 h-5 text-blue-700"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-slate-900 mb-1">Guaranteed Work</h3>
+                                <p class="text-slate-500 text-sm">Every job comes with a 12-month guarantee for total peace of mind.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-16 md:py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-3">What Our Customers Say</h2>
+                <p class="text-slate-500 text-lg">Trusted by hundreds of homeowners across Hertfordshire</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+                    <div class="flex gap-1 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                    </div>
+                    <p class="text-slate-600 mb-6 leading-relaxed">"Had a burst pipe at 11pm on a Sunday. Called FlowFix and they were here within 30 minutes. Sorted the issue quickly and professionally. Can't recommend them enough!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center text-white font-bold text-sm">JM</div>
+                        <div>
+                            <p class="font-semibold text-slate-900 text-sm">James Mitchell</p>
+                            <p class="text-slate-400 text-xs">Watford</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+                    <div class="flex gap-1 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                    </div>
+                    <p class="text-slate-600 mb-6 leading-relaxed">"FlowFit completely refitted our bathroom and the result is stunning. The team was tidy, on time and kept us informed at every stage. Brilliant service from start to finish."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center text-white font-bold text-sm">SP</div>
+                        <div>
+                            <p class="font-semibold text-slate-900 text-sm">Sarah Patel</p>
+                            <p class="text-slate-400 text-xs">Rickmansworth</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+                    <div class="flex gap-1 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                    </div>
+                    <p class="text-slate-600 mb-6 leading-relaxed">"Our boiler broke down in December. FlowFix diagnosed the problem, gave us an honest quote and had it repaired the same day. Fair pricing and genuinely trustworthy."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center text-white font-bold text-sm">DW</div>
+                        <div>
+                            <p class="font-semibold text-slate-900 text-sm">David Watkins</p>
+                            <p class="text-slate-400 text-xs">Chorleywood</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-gradient-to-br from-blue-700 to-blue-800 py-16 md:py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Need a plumber? Call now.</h2>
+            <p class="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">Whether it's an emergency or a planned job, our friendly team is ready to help. No callout fee, no hassle.</p>
+            <a href="tel:01234567890" class="inline-flex items-center gap-3 bg-white text-blue-700 hover:bg-blue-50 font-bold px-10 py-4 rounded-xl text-lg shadow-lg hover:shadow-xl transition-all">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+                01234 567 890
+            </a>
+            <p class="text-blue-200 text-sm mt-4">Available 24 hours a day, 7 days a week</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-10">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i data-lucide="droplets" class="w-6 h-6 text-blue-400"></i>
+                        <span class="text-xl font-bold text-white">FlowFix</span>
+                    </div>
+                    <p class="text-sm leading-relaxed">Professional plumbing and heating services for homes across Hertfordshire. Trusted, reliable and always on time.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="demo-plumbing.html" class="hover:text-blue-400 transition">Home</a></li>
+                        <li><a href="demo-plumbing-services.html" class="hover:text-blue-400 transition">Our Services</a></li>
+                        <li><a href="demo-plumbing-areas.html" class="hover:text-blue-400 transition">Areas We Serve</a></li>
+                        <li><a href="#reviews" class="hover:text-blue-400 transition">Reviews</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-blue-400"></i> <a href="tel:01234567890" class="hover:text-white transition">01234 567 890</a></li>
+                        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-blue-400"></i> <a href="mailto:info@flowfix.co.uk" class="hover:text-white transition">info@flowfix.co.uk</a></li>
+                        <li class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-blue-400"></i> 24/7 Emergency Line</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-6 text-center">
+                <p class="text-xs text-slate-500">© 2024 FlowFix Plumbing. All rights reserved. This is a demo website created by <a href="https://weblab.solutions" class="text-blue-400 hover:text-blue-300 transition">Weblab Solutions Solutions</a> for portfolio purposes. FlowFix Plumbing is not a real business.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

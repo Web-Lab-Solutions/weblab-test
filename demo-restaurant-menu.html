@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Menu — Ember &amp; Oak</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .font-serif-italic { font-family: 'Playfair Display', Georgia, serif; font-style: italic; }
+        .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+    </style>
+</head>
+<body class="font-sans text-zinc-800 bg-stone-50">
+
+    <!-- Demo Banner -->
+    <div class="bg-blue-600 text-white text-center py-2 text-xs font-medium tracking-wide">✦ This is an example website built by <a href="https://weblab.solutions" class="underline hover:text-blue-200">Weblab Solutions Solutions</a> to demonstrate our work. Ember &amp; Oak is not a real business. <a href="portfolio.html" class="underline hover:text-blue-200">← Back to portfolio</a></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="sticky top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <a href="demo-restaurant.html" class="font-serif-italic text-2xl lg:text-3xl text-amber-800 font-semibold tracking-tight">Ember &amp; Oak</a>
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="demo-restaurant-menu.html" class="text-sm font-medium text-amber-700 transition-colors tracking-wide uppercase">Menu</a>
+                    <a href="demo-restaurant-reservations.html" class="text-sm font-medium text-zinc-600 hover:text-amber-700 transition-colors tracking-wide uppercase">Reservations</a>
+                    <a href="demo-restaurant.html#about" class="text-sm font-medium text-zinc-600 hover:text-amber-700 transition-colors tracking-wide uppercase">About</a>
+                    <a href="demo-restaurant.html#contact" class="text-sm font-medium text-zinc-600 hover:text-amber-700 transition-colors tracking-wide uppercase">Contact</a>
+                    <a href="demo-restaurant-reservations.html" class="inline-flex items-center px-5 py-2.5 bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold rounded-full transition-all duration-200 shadow-sm hover:shadow-md">Book a Table</a>
+                </div>
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-zinc-600 hover:text-amber-700" aria-label="Toggle menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-stone-100 shadow-lg">
+            <div class="px-4 py-4 space-y-1">
+                <a href="demo-restaurant-menu.html" class="block px-4 py-3 text-sm font-medium text-amber-700 bg-amber-50 rounded-lg tracking-wide uppercase">Menu</a>
+                <a href="demo-restaurant-reservations.html" class="block px-4 py-3 text-sm font-medium text-zinc-600 hover:text-amber-700 hover:bg-stone-50 rounded-lg tracking-wide uppercase">Reservations</a>
+                <a href="demo-restaurant.html#about" class="block px-4 py-3 text-sm font-medium text-zinc-600 hover:text-amber-700 hover:bg-stone-50 rounded-lg tracking-wide uppercase">About</a>
+                <a href="demo-restaurant.html#contact" class="block px-4 py-3 text-sm font-medium text-zinc-600 hover:text-amber-700 hover:bg-stone-50 rounded-lg tracking-wide uppercase">Contact</a>
+                <div class="pt-2">
+                    <a href="demo-restaurant-reservations.html" class="block text-center px-4 py-3 bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold rounded-full transition-colors">Book a Table</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu Header -->
+    <section class="relative py-20 lg:py-28 bg-zinc-900 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&h=500&fit=crop" alt="Fine dining at Ember & Oak" class="absolute inset-0 w-full h-full object-cover opacity-30">
+        <div class="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/80 to-transparent"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-amber-400 text-sm font-semibold tracking-[0.3em] uppercase mb-4">Our Menu</p>
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-white font-medium leading-tight mb-6">Seasonal <em class="text-amber-300">British</em> Cuisine</h1>
+            <p class="text-stone-300 text-lg max-w-2xl leading-relaxed">Our menu changes with the seasons, celebrating the finest British produce. Every dish is crafted with care over our open fire.</p>
+        </div>
+    </section>
+
+    <!-- Menu Navigation -->
+    <div class="sticky top-16 lg:top-20 z-40 bg-white border-b border-stone-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex overflow-x-auto no-scrollbar gap-1 py-2">
+                <a href="#starters" class="flex-shrink-0 px-4 py-2 text-sm font-medium text-zinc-600 hover:text-amber-700 hover:bg-amber-50 rounded-full transition-colors">Starters</a>
+                <a href="#mains" class="flex-shrink-0 px-4 py-2 text-sm font-medium text-zinc-600 hover:text-amber-700 hover:bg-amber-50 rounded-full transition-colors">Mains</a>
+                <a href="#desserts" class="flex-shrink-0 px-4 py-2 text-sm font-medium text-zinc-600 hover:text-amber-700 hover:bg-amber-50 rounded-full transition-colors">Desserts</a>
+                <a href="#drinks" class="flex-shrink-0 px-4 py-2 text-sm font-medium text-zinc-600 hover:text-amber-700 hover:bg-amber-50 rounded-full transition-colors">Drinks</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Starters -->
+    <section id="starters" class="py-16 lg:py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <p class="text-amber-600 text-xs font-semibold tracking-[0.3em] uppercase mb-3">To Begin</p>
+                <h2 class="font-serif text-3xl sm:text-4xl text-zinc-900 font-medium">Starters</h2>
+                <div class="w-16 h-px bg-amber-400 mx-auto mt-4"></div>
+            </div>
+            <div class="space-y-8">
+                <!-- Item 1 -->
+                <div class="flex gap-4 pb-8 border-b border-stone-100">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between gap-4 mb-2">
+                            <h3 class="font-serif text-xl font-semibold text-zinc-900">Burrata &amp; Heritage Tomatoes</h3>
+                            <span class="text-lg font-semibold text-amber-700 flex-shrink-0">£14</span>
+                        </div>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-2">Creamy Pugliese burrata with heritage tomatoes, basil oil, aged balsamic, and sourdough crisps.</p>
+                        <div class="flex gap-2">
+                            <span class="inline-flex items-center px-2 py-0.5 bg-green-100 text-green-700 text-xs font-semibold rounded">V</span>
+                            <span class="inline-flex items-center px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-semibold rounded">GF</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="flex gap-4 pb-8 border-b border-stone-100">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between gap-4 mb-2">
+                            <h3 class="font-serif text-xl font-semibold text-zinc-900">Seared Scallops</h3>
+                            <span class="text-lg font-semibold text-amber-700 flex-shrink-0">£18</span>
+                        </div>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-2">Hand-dived Orkney scallops with cauliflower purée, black pudding crumb, and caper brown butter.</p>
+                        <div class="flex gap-2">
+                            <span class="inline-flex items-center px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-semibold rounded">GF</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="flex gap-4 pb-8 border-b border-stone-100">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between gap-4 mb-2">
+                            <h3 class="font-serif text-xl font-semibold text-zinc-900">Beetroot Cured Salmon</h3>
+                            <span class="text-lg font-semibold text-amber-700 flex-shrink-0">£16</span>
+                        </div>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-2">Home-cured salmon with pickled beetroot, crème fraîche, dill, rye bread, and horseradish cream.</p>
+                        <div class="flex gap-2">
+                            <span class="inline-flex items-center px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-semibold rounded">GF</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="flex gap-4 pb-8 border-b border-stone-100">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between gap-4 mb-2">
+                            <h3 class="font-serif text-xl font-semibold text-zinc-900">Soup of the Day</h3>
+                            <span class="text-lg font-semibold text-amber-700 flex-shrink-0">£10</span>
+                        </div>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-2">A rotating selection using the best seasonal produce. Ask your server for today's inspiration. Served with warm bread.</p>
+                        <div class="flex gap-2">
+                            <span class="inline-flex items-center px-2 py-0.5 bg-green-100 text-green-700 text-xs font-semibold rounded">V</span>
+                            <span class="inline-flex items-center px-2 py-0.5 text-stone-400 text-xs font-medium italic">VG options available</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="flex gap-4">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between gap-4 mb-2">
+                            <h3 class="font-serif text-xl font-semibold text-zinc-900">Chicken Liver Pâté</h3>
+                            <span class="text-lg font-semibold text-amber-700 flex-shrink-0">£12</span>
+                        </div>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-2">Velvety smooth pâté with shallot jam, cornichons, and toasted brioche. A classic, done beautifully.</p>
+                        <div class="flex gap-2">
+                            <span class="inline-flex items-center px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-semibold rounded">GF</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mains -->
+    <section id="mains" class="py-16 lg:py-20 bg-stone-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <p class="text-amber-600 text-xs font-semibold tracking-[0.3em] uppercase mb-3">Main Courses</p>
+                <h2 class="font-serif text-3xl sm:text-4xl text-zinc-900 font-medium">Mains</h2>
+                <div class="w-16 h-px bg-amber-400 mx-auto mt-4"></div>
+            </div>
+            <div class="space-y-8">
+                <!-- Mains hero image -->
+                <div class="rounded-2xl overflow-hidden shadow-lg mb-12">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=400&fit=crop" alt="Signature main course" class="w-full h-48 sm:h-64 lg:h-80 object-cover">
+                </div>
+                <!-- Item 1 -->
+                <div class="flex gap-4 pb-8 border-b border-stone-200">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between gap-4 mb-2">
+                            <div class="flex items-center gap-2">
+                                <h3 class="font-serif text-xl font-semibold text-zinc-900">Dry-Aged Ribeye</h3>
+                                <span class="inline-flex items-center px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-semibold rounded">Signature</span>
+                            </div>
+                            <span class="text-lg font-semibold text-amber-700 flex-shrink-0">£38</span>
+                        </div>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-2">28-day dry-aged British beef, charcoal-grilled over oak. Served with bone marrow butter, triple-cooked chips, roasted vine tomatoes, and peppercorn sauce.</p>
+                        <div class="flex gap-2">
+                            <span class="inline-flex items-center px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-semibold rounded">GF</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="flex gap-4 pb-8 border-b border-stone-200">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between gap-4 mb-2">
+                            <h3 class="font-serif text-xl font-semibold text-zinc-900">Pan-Roasted Sea Bass</h3>
+                            <span class="text-lg font-semibold text-amber-700 flex-shrink-0">£32</span>
+                        </div>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-2">Line-caught Cornish sea bass with saffron risotto, samphire, cherry tomatoes, and a warm shellfish bisque.</p>
+                        <div class="flex gap-2">
+                            <span class="inline-flex items-center px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-semibold rounded">GF</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="flex gap-4 pb-8 border-b border-stone-200">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between gap-4 mb-2">
+                            <h3 class="font-serif text-xl font-semibold text-zinc-900">Wild Mushroom Risotto</h3>
+                            <span class="text-lg font-semibold text-amber-700 flex-shrink-0">£22</span>
+                        </div>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-2">Carnaroli rice with foraged wild mushrooms, truffle oil, aged Parmesan, and a soft free-range egg yolk.</p>
+                        <div class="flex gap-2">
+                            <span class="inline-flex items-center px-2 py-0.5 bg-green-100 text-green-700 text-xs font-semibold rounded">V</span>
+                            <span class="inline-flex items-center px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-semibold rounded">GF</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="flex gap-4 pb-8 border-b border-stone-200">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between gap-4 mb-2">
+                            <h3 class="font-serif text-xl font-semibold text-zinc-900">Heron Valley Lamb Rump</h3>
+                            <span class="text-lg font-semibold text-amber-700 flex-shrink-0">£34</span>
+                        </div>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-2">Slow-roasted then seared lamb rump with ratatouille vegetables, minted jus, and dauphinoise potatoes.</p>
+                        <div class="flex gap-2">
+                            <span class="inline-flex items-center px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-semibold rounded">GF</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="flex gap-4 pb-8 border-b border-stone-200">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between gap-4 mb-2">
+                            <h3 class="font-serif text-xl font-semibold text-zinc-900">Open-Fire Roast Chicken</h3>
+                            <span class="text-lg font-semibold text-amber-700 flex-shrink-0">£26</span>
+                        </div>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-2">Free-range chicken roasted over our open fire with roast root vegetables, bread sauce, and seasonal greens.</p>
+                        <div class="flex gap-2">
+                            <span class="inline-flex items-center px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-semibold rounded">GF</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 6 -->
+                <div class="flex gap-4">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between gap-4 mb-2">
+                            <h3 class="font-serif text-xl font-semibold text-zinc-900">Wild Mushroom Pappardelle</h3>
+                            <span class="text-lg font-semibold text-amber-700 flex-shrink-0">£20</span>
+                        </div>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-2">Hand-rolled pappardelle with porcini, chanterelle, and chestnut mushrooms in a rich cream and sage sauce.</p>
+                        <div class="flex gap-2">
+                            <span class="inline-flex items-center px-2 py-0.5 bg-green-100 text-green-700 text-xs font-semibold rounded">V</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Desserts -->
+    <section id="desserts" class="py-16 lg:py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <p class="text-amber-600 text-xs font-semibold tracking-[0.3em] uppercase mb-3">Something Sweet</p>
+                <h2 class="font-serif text-3xl sm:text-4xl text-zinc-900 font-medium">Desserts</h2>
+                <div class="w-16 h-px bg-amber-400 mx-auto mt-4"></div>
+            </div>
+            <!-- Desserts image -->
+            <div class="rounded-2xl overflow-hidden shadow-lg mb-12">
+                <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&h=350&fit=crop" alt="Artisan desserts at Ember & Oak" class="w-full h-48 sm:h-64 object-cover">
+            </div>
+            <div class="space-y-8">
+                <!-- Item 1 -->
+                <div class="flex gap-4 pb-8 border-b border-stone-100">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between gap-4 mb-2">
+                            <div class="flex items-center gap-2">
+                                <h3 class="font-serif text-xl font-semibold text-zinc-900">Chocolate Fondant</h3>
+                                <span class="inline-flex items-center px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-semibold rounded">Signature</span>
+                            </div>
+                            <span class="text-lg font-semibold text-amber-700 flex-shrink-0">£14</span>
+                        </div>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-2">Valrhona dark chocolate fondant with a molten centre, salted caramel ice cream, and toasted hazelnut praline.</p>
+                        <div class="flex gap-2">
+                            <span class="inline-flex items-center px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-semibold rounded">GF</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="flex gap-4 pb-8 border-b border-stone-100">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between gap-4 mb-2">
+                            <h3 class="font-serif text-xl font-semibold text-zinc-900">Crème Brûlée</h3>
+                            <span class="text-lg font-semibold text-amber-700 flex-shrink-0">£12</span>
+                        </div>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-2">Classic vanilla bean crème brûlée with a perfectly caramelised sugar crust. Served with shortbread biscuits.</p>
+                        <div class="flex gap-2">
+                            <span class="inline-flex items-center px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-semibold rounded">GF</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="flex gap-4 pb-8 border-b border-stone-100">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between gap-4 mb-2">
+                            <h3 class="font-serif text-xl font-semibold text-zinc-900">British Cheese Board</h3>
+                            <span class="text-lg font-semibold text-amber-700 flex-shrink-0">£16</span>
+                        </div>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-2">A curated selection of artisan British cheeses with chutney, oatcakes, grapes, and celery. Ask about today's selection.</p>
+                        <div class="flex gap-2">
+                            <span class="inline-flex items-center px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-semibold rounded">GF</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="flex gap-4">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between gap-4 mb-2">
+                            <h3 class="font-serif text-xl font-semibold text-zinc-900">Seasonal Fruit Tart</h3>
+                            <span class="text-lg font-semibold text-amber-700 flex-shrink-0">£13</span>
+                        </div>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-2">Buttery shortcrust pastry filled with vanilla crème pâtissière and topped with the finest seasonal British fruits.</p>
+                        <div class="flex gap-2">
+                            <span class="inline-flex items-center px-2 py-0.5 bg-green-100 text-green-700 text-xs font-semibold rounded">V</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Drinks -->
+    <section id="drinks" class="py-16 lg:py-20 bg-stone-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <p class="text-amber-600 text-xs font-semibold tracking-[0.3em] uppercase mb-3">Raise a Glass</p>
+                <h2 class="font-serif text-3xl sm:text-4xl text-zinc-900 font-medium">Drinks</h2>
+                <div class="w-16 h-px bg-amber-400 mx-auto mt-4"></div>
+            </div>
+
+            <!-- Drinks hero -->
+            <div class="grid md:grid-cols-2 gap-6 mb-12 rounded-2xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&h=400&fit=crop" alt="Cocktails at Ember & Oak" class="w-full h-48 object-cover">
+                <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&h=400&fit=crop" alt="Wine selection at Ember & Oak" class="w-full h-48 object-cover">
+            </div>
+
+            <!-- Cocktails -->
+            <h3 class="font-serif text-2xl font-semibold text-zinc-900 mb-6">Cocktails</h3>
+            <div class="space-y-6 mb-12">
+                <div class="flex gap-4 pb-6 border-b border-stone-200">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between gap-4 mb-1">
+                            <h4 class="font-serif text-lg font-semibold text-zinc-900">The Ember Old Fashioned</h4>
+                            <span class="font-semibold text-amber-700 flex-shrink-0">£15</span>
+                        </div>
+                        <p class="text-zinc-500 text-sm">Smoked bourbon, demerara, Angostura bitters, and a flamed orange peel. Smoky, rich, and unforgettable.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 pb-6 border-b border-stone-200">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between gap-4 mb-1">
+                            <h4 class="font-serif text-lg font-semibold text-zinc-900">Oakwood Negroni</h4>
+                            <span class="font-semibold text-amber-700 flex-shrink-0">£14</span>
+                        </div>
+                        <p class="text-zinc-500 text-sm">Barrel-aged gin, Campari, and sweet vermouth with oak-smoked rosemary. Our twist on an Italian classic.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 pb-6 border-b border-stone-200">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between gap-4 mb-1">
+                            <h4 class="font-serif text-lg font-semibold text-zinc-900">Garden Spritz</h4>
+                            <span class="font-semibold text-amber-700 flex-shrink-0">£13</span>
+                        </div>
+                        <p class="text-zinc-500 text-sm">Elderflower liqueur, prosecco, cucumber, and fresh mint. Light, refreshing, and perfect for warm evenings.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between gap-4 mb-1">
+                            <h4 class="font-serif text-lg font-semibold text-zinc-900">Autumn Sour</h4>
+                            <span class="font-semibold text-amber-700 flex-shrink-0">£14</span>
+                        </div>
+                        <p class="text-zinc-500 text-sm">Whisky, fresh lemon, egg white, and spiced apple syrup. A seasonal favourite that changes with the harvest.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wine -->
+            <h3 class="font-serif text-2xl font-semibold text-zinc-900 mb-4">Wine</h3>
+            <div class="bg-white rounded-2xl p-8 border border-stone-200 mb-12">
+                <p class="text-zinc-600 leading-relaxed mb-4">Our sommelier has curated a wine list featuring over 80 bins from the world's finest vineyards. We specialise in organic and biodynamic wines from small, passionate producers.</p>
+                <div class="grid sm:grid-cols-3 gap-6 text-center">
+                    <div>
+                        <p class="text-2xl font-serif text-amber-700 font-semibold">80+</p>
+                        <p class="text-sm text-zinc-500">Wines by the bottle</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-serif text-amber-700 font-semibold">20+</p>
+                        <p class="text-sm text-zinc-500">Wines by the glass</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-serif text-amber-700 font-semibold">12</p>
+                        <p class="text-sm text-zinc-500">Countries represented</p>
+                    </div>
+                </div>
+                <p class="text-sm text-zinc-400 text-center mt-4">Bottles from £28 • Glasses from £8 • Ask about our wine pairing menus</p>
+            </div>
+
+            <!-- Non-Alcoholic -->
+            <h3 class="font-serif text-2xl font-semibold text-zinc-900 mb-6">Non-Alcoholic</h3>
+            <div class="space-y-4">
+                <div class="flex justify-between items-center pb-4 border-b border-stone-200">
+                    <span class="text-zinc-700">House-Made Lemonade</span>
+                    <span class="text-sm text-zinc-500">Seasonal fruits, herbs — £6</span>
+                </div>
+                <div class="flex justify-between items-center pb-4 border-b border-stone-200">
+                    <span class="text-zinc-700">Zero-Spirit Cocktails</span>
+                    <span class="text-sm text-zinc-500">Seedlip, Lyre's — £10</span>
+                </div>
+                <div class="flex justify-between items-center pb-4 border-b border-stone-200">
+                    <span class="text-zinc-700">Speciality Coffee</span>
+                    <span class="text-sm text-zinc-500">Espresso, flat white, pour-over — £4.50</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-zinc-700">Artisan Soft Drinks</span>
+                    <span class="text-sm text-zinc-500">Fentimans, Luscombe — £5</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Allergen Note -->
+    <section class="py-10 bg-amber-50 border-y border-amber-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex items-center justify-center gap-2 mb-2">
+                <i data-lucide="alert-circle" class="w-5 h-5 text-amber-600"></i>
+                <p class="text-sm font-semibold text-amber-800">Allergen Information</p>
+            </div>
+            <p class="text-sm text-amber-700">All dishes may contain allergens. Please inform your server of any allergies or dietary requirements. <strong>V</strong> = Vegetarian • <strong>VG</strong> = Vegan options available • <strong>GF</strong> = Gluten-free. Full allergen matrices available on request.</p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 lg:py-20 bg-zinc-900">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-serif text-3xl sm:text-4xl text-white font-medium mb-4">Ready to Dine With Us?</h2>
+            <p class="text-stone-400 text-lg mb-8">Book your table today and experience the best of modern British cooking.</p>
+            <a href="demo-restaurant-reservations.html" class="inline-flex items-center gap-2 px-8 py-4 bg-amber-600 hover:bg-amber-700 text-white text-base font-semibold rounded-full transition-all duration-200 shadow-lg hover:shadow-xl">
+                <i data-lucide="calendar" class="w-5 h-5"></i>
+                Reserve Your Table
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-950 text-stone-400 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-10 mb-12">
+                <div>
+                    <a href="demo-restaurant.html" class="font-serif-italic text-2xl text-amber-400 font-semibold">Ember &amp; Oak</a>
+                    <p class="mt-4 text-sm leading-relaxed">Modern British dining rooted in open-fire tradition and seasonal, locally sourced ingredients.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wide mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="demo-restaurant.html" class="hover:text-amber-400 transition-colors">Home</a></li>
+                        <li><a href="demo-restaurant-menu.html" class="hover:text-amber-400 transition-colors">Our Menu</a></li>
+                        <li><a href="demo-restaurant-reservations.html" class="hover:text-amber-400 transition-colors">Reservations</a></li>
+                        <li><a href="demo-restaurant.html#about" class="hover:text-amber-400 transition-colors">About Us</a></li>
+                        <li><a href="demo-restaurant.html#contact" class="hover:text-amber-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wide mb-4">Contact</h4>
+                    <p class="text-sm mb-1">28 Oak Street, London, W1D 3QF</p>
+                    <p class="text-sm mb-1">+44 (0)20 7946 0123</p>
+                    <p class="text-sm">hello@emberandoak.co.uk</p>
+                </div>
+            </div>
+            <div class="border-t border-zinc-800 pt-8 text-center">
+                <p class="text-xs text-zinc-500">✦ This is a demo website created by <a href="https://weblab.solutions" class="text-amber-500 hover:text-amber-400 underline">Weblab Solutions Solutions</a>. Ember &amp; Oak is a fictional business. <a href="portfolio.html" class="text-amber-500 hover:text-amber-400 underline">← Back to portfolio</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

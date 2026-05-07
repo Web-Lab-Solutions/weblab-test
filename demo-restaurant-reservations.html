@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Reservations — Ember &amp; Oak</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .font-serif-italic { font-family: 'Playfair Display', Georgia, serif; font-style: italic; }
+        .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+        input[type="date"]::-webkit-calendar-picker-indicator,
+        input[type="time"]::-webkit-calendar-picker-indicator {
+            filter: invert(30%) sepia(20%) saturate(800%) hue-rotate(10deg);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="font-sans text-zinc-800 bg-stone-50">
+
+    <!-- Demo Banner -->
+    <div class="bg-blue-600 text-white text-center py-2 text-xs font-medium tracking-wide">✦ This is an example website built by <a href="https://weblab.solutions" class="underline hover:text-blue-200">Weblab Solutions Solutions</a> to demonstrate our work. Ember &amp; Oak is not a real business. <a href="portfolio.html" class="underline hover:text-blue-200">← Back to portfolio</a></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="sticky top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <a href="demo-restaurant.html" class="font-serif-italic text-2xl lg:text-3xl text-amber-800 font-semibold tracking-tight">Ember &amp; Oak</a>
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="demo-restaurant-menu.html" class="text-sm font-medium text-zinc-600 hover:text-amber-700 transition-colors tracking-wide uppercase">Menu</a>
+                    <a href="demo-restaurant-reservations.html" class="text-sm font-medium text-amber-700 transition-colors tracking-wide uppercase">Reservations</a>
+                    <a href="demo-restaurant.html#about" class="text-sm font-medium text-zinc-600 hover:text-amber-700 transition-colors tracking-wide uppercase">About</a>
+                    <a href="demo-restaurant.html#contact" class="text-sm font-medium text-zinc-600 hover:text-amber-700 transition-colors tracking-wide uppercase">Contact</a>
+                    <a href="demo-restaurant-reservations.html" class="inline-flex items-center px-5 py-2.5 bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold rounded-full transition-all duration-200 shadow-sm hover:shadow-md">Book a Table</a>
+                </div>
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-zinc-600 hover:text-amber-700" aria-label="Toggle menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-stone-100 shadow-lg">
+            <div class="px-4 py-4 space-y-1">
+                <a href="demo-restaurant-menu.html" class="block px-4 py-3 text-sm font-medium text-zinc-600 hover:text-amber-700 hover:bg-stone-50 rounded-lg tracking-wide uppercase">Menu</a>
+                <a href="demo-restaurant-reservations.html" class="block px-4 py-3 text-sm font-medium text-amber-700 bg-amber-50 rounded-lg tracking-wide uppercase">Reservations</a>
+                <a href="demo-restaurant.html#about" class="block px-4 py-3 text-sm font-medium text-zinc-600 hover:text-amber-700 hover:bg-stone-50 rounded-lg tracking-wide uppercase">About</a>
+                <a href="demo-restaurant.html#contact" class="block px-4 py-3 text-sm font-medium text-zinc-600 hover:text-amber-700 hover:bg-stone-50 rounded-lg tracking-wide uppercase">Contact</a>
+                <div class="pt-2">
+                    <a href="demo-restaurant-reservations.html" class="block text-center px-4 py-3 bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold rounded-full transition-colors">Book a Table</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="relative py-20 lg:py-28 bg-zinc-900 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1600&h=500&fit=crop" alt="Ember & Oak restaurant interior" class="absolute inset-0 w-full h-full object-cover opacity-25">
+        <div class="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/80 to-transparent"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-amber-400 text-sm font-semibold tracking-[0.3em] uppercase mb-4">Reservations</p>
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-white font-medium leading-tight mb-6">Reserve Your <em class="text-amber-300">Table</em></h1>
+            <p class="text-stone-300 text-lg max-w-2xl leading-relaxed">We'd love to welcome you. Book online below or call us directly for parties of 8 or more.</p>
+        </div>
+    </section>
+
+    <!-- Reservation Form Section -->
+    <section class="py-16 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-5 gap-12 lg:gap-16">
+                <!-- Form -->
+                <div class="lg:col-span-3">
+                    <div class="bg-stone-50 rounded-2xl p-6 sm:p-10 border border-stone-200">
+                        <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 font-medium mb-2">Book Your Table</h2>
+                        <p class="text-zinc-500 mb-8 text-sm">Fill in the details below and we'll confirm your reservation within 2 hours via email.</p>
+
+                        <form id="reservation-form" class="space-y-6">
+                            <div class="grid sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-zinc-700 mb-2">Full Name <span class="text-red-400">*</span></label>
+                                    <input type="text" id="name" name="name" required placeholder="John Smith" class="w-full px-4 py-3 bg-white border border-stone-300 rounded-xl text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-zinc-700 mb-2">Email Address <span class="text-red-400">*</span></label>
+                                    <input type="email" id="email" name="email" required placeholder="john@example.com" class="w-full px-4 py-3 bg-white border border-stone-300 rounded-xl text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all">
+                                </div>
+                            </div>
+                            <div class="grid sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="phone" class="block text-sm font-medium text-zinc-700 mb-2">Phone Number <span class="text-red-400">*</span></label>
+                                    <input type="tel" id="phone" name="phone" required placeholder="+44 7700 000000" class="w-full px-4 py-3 bg-white border border-stone-300 rounded-xl text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all">
+                                </div>
+                                <div>
+                                    <label for="guests" class="block text-sm font-medium text-zinc-700 mb-2">Number of Guests <span class="text-red-400">*</span></label>
+                                    <select id="guests" name="guests" required class="w-full px-4 py-3 bg-white border border-stone-300 rounded-xl text-sm text-zinc-800 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all appearance-none" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2371717a%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 12px center; background-size: 16px;">
+                                        <option value="" disabled selected>Select guests</option>
+                                        <option value="1">1 Guest</option>
+                                        <option value="2">2 Guests</option>
+                                        <option value="3">3 Guests</option>
+                                        <option value="4">4 Guests</option>
+                                        <option value="5">5 Guests</option>
+                                        <option value="6">6 Guests</option>
+                                        <option value="7">7 Guests</option>
+                                        <option value="8">8+ Guests (call us)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="grid sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="date" class="block text-sm font-medium text-zinc-700 mb-2">Preferred Date <span class="text-red-400">*</span></label>
+                                    <input type="date" id="date" name="date" required class="w-full px-4 py-3 bg-white border border-stone-300 rounded-xl text-sm text-zinc-800 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all">
+                                </div>
+                                <div>
+                                    <label for="time" class="block text-sm font-medium text-zinc-700 mb-2">Preferred Time <span class="text-red-400">*</span></label>
+                                    <select id="time" name="time" required class="w-full px-4 py-3 bg-white border border-stone-300 rounded-xl text-sm text-zinc-800 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all appearance-none" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2371717a%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 12px center; background-size: 16px;">
+                                        <option value="" disabled selected>Select time</option>
+                                        <option value="12:00">12:00 PM — Lunch</option>
+                                        <option value="12:30">12:30 PM — Lunch</option>
+                                        <option value="13:00">1:00 PM — Lunch</option>
+                                        <option value="13:30">1:30 PM — Lunch</option>
+                                        <option value="14:00">2:00 PM — Lunch</option>
+                                        <option value="18:00">6:00 PM — Dinner</option>
+                                        <option value="18:30">6:30 PM — Dinner</option>
+                                        <option value="19:00">7:00 PM — Dinner</option>
+                                        <option value="19:30">7:30 PM — Dinner</option>
+                                        <option value="20:00">8:00 PM — Dinner</option>
+                                        <option value="20:30">8:30 PM — Dinner</option>
+                                        <option value="21:00">9:00 PM — Dinner</option>
+                                        <option value="21:30">9:30 PM — Dinner</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="requests" class="block text-sm font-medium text-zinc-700 mb-2">Special Requests</label>
+                                <textarea id="requests" name="requests" rows="4" placeholder="Dietary requirements, celebrations, seating preferences, accessibility needs..." class="w-full px-4 py-3 bg-white border border-stone-300 rounded-xl text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-600 hover:bg-amber-700 text-white text-base font-semibold rounded-full transition-all duration-200 shadow-md hover:shadow-lg">
+                                <i data-lucide="calendar-check" class="w-5 h-5"></i>
+                                Request Reservation
+                            </button>
+                            <p class="text-xs text-zinc-400 mt-3">We'll confirm your reservation within 2 hours via email. For same-day bookings, please call us directly.</p>
+                        </form>
+
+                        <!-- Success message (hidden by default) -->
+                        <div id="form-success" class="hidden mt-6 p-6 bg-green-50 border border-green-200 rounded-xl">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                                    <i data-lucide="check" class="w-4 h-4 text-green-600"></i>
+                                </div>
+                                <h3 class="font-semibold text-green-800">Reservation Request Received!</h3>
+                            </div>
+                            <p class="text-sm text-green-700">Thank you! We'll confirm your reservation within 2 hours via email. This is a demo — no actual booking was made.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- Opening Hours -->
+                    <div class="bg-zinc-900 rounded-2xl p-6 sm:p-8 text-white">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 bg-amber-600 rounded-xl flex items-center justify-center">
+                                <i data-lucide="clock" class="w-5 h-5 text-white"></i>
+                            </div>
+                            <h3 class="font-serif text-xl font-semibold">Opening Hours</h3>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center py-2 border-b border-zinc-700">
+                                <span class="text-stone-300 text-sm">Tuesday</span>
+                                <span class="text-white text-sm font-medium">12pm – 11pm</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-zinc-700">
+                                <span class="text-stone-300 text-sm">Wednesday</span>
+                                <span class="text-white text-sm font-medium">12pm – 11pm</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-zinc-700">
+                                <span class="text-stone-300 text-sm">Thursday</span>
+                                <span class="text-white text-sm font-medium">12pm – 11pm</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-zinc-700">
+                                <span class="text-stone-300 text-sm">Friday</span>
+                                <span class="text-white text-sm font-medium">12pm – 11pm</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-zinc-700">
+                                <span class="text-stone-300 text-sm">Saturday</span>
+                                <span class="text-white text-sm font-medium">12pm – 11pm</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-zinc-700">
+                                <span class="text-stone-300 text-sm">Sunday</span>
+                                <span class="text-white text-sm font-medium">12pm – 9pm</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2">
+                                <span class="text-stone-300 text-sm">Monday</span>
+                                <span class="text-red-400 text-sm font-medium">Closed</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 p-4 bg-zinc-800 rounded-xl">
+                            <p class="text-xs text-stone-400 text-center">Last dinner seating at 9:30pm<br>Sunday last seating at 8pm</p>
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="bg-stone-50 rounded-2xl p-6 sm:p-8 border border-stone-200">
+                        <h3 class="font-serif text-xl font-semibold text-zinc-900 mb-6">Contact Us</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <div class="w-9 h-9 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <i data-lucide="phone" class="w-4 h-4 text-amber-700"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-medium text-zinc-500 uppercase tracking-wide mb-0.5">Phone</p>
+                                    <p class="text-sm font-medium text-zinc-900">+44 (0)20 7946 0123</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-9 h-9 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <i data-lucide="mail" class="w-4 h-4 text-amber-700"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-medium text-zinc-500 uppercase tracking-wide mb-0.5">Email</p>
+                                    <p class="text-sm font-medium text-zinc-900">hello@emberandoak.co.uk</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-9 h-9 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <i data-lucide="map-pin" class="w-4 h-4 text-amber-700"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-medium text-zinc-500 uppercase tracking-wide mb-0.5">Address</p>
+                                    <p class="text-sm font-medium text-zinc-900">28 Oak Street<br>London, W1D 3QF</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 p-3 bg-amber-50 border border-amber-200 rounded-xl">
+                            <p class="text-xs text-amber-700 text-center">For parties of 8 or more, please call us directly to discuss your requirements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Private Dining -->
+    <section class="py-16 lg:py-24 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="relative rounded-2xl overflow-hidden shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop" alt="Private dining room at Ember & Oak" class="w-full h-[350px] lg:h-[450px] object-cover">
+                    <div class="absolute top-6 left-6 bg-amber-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">Private Dining</div>
+                </div>
+                <div>
+                    <p class="text-amber-600 text-sm font-semibold tracking-[0.2em] uppercase mb-4">Celebrate With Us</p>
+                    <h2 class="font-serif text-3xl sm:text-4xl text-zinc-900 font-medium leading-tight mb-6">Private <em class="text-amber-700">Dining</em> Room</h2>
+                    <p class="text-zinc-600 leading-relaxed mb-6">Our beautifully appointed private dining room offers an intimate setting for special occasions, business dinners, and celebrations. With its own dedicated service team and bespoke menu options, it's the perfect space to create unforgettable memories.</p>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="bg-white rounded-xl p-4 border border-stone-200 text-center">
+                            <p class="text-2xl font-serif text-amber-700 font-semibold">30</p>
+                            <p class="text-xs text-zinc-500 mt-1">Guests Capacity</p>
+                        </div>
+                        <div class="bg-white rounded-xl p-4 border border-stone-200 text-center">
+                            <p class="text-2xl font-serif text-amber-700 font-semibold">Custom</p>
+                            <p class="text-xs text-zinc-500 mt-1">Menu Options</p>
+                        </div>
+                        <div class="bg-white rounded-xl p-4 border border-stone-200 text-center">
+                            <p class="text-2xl font-serif text-amber-700 font-semibold">AV</p>
+                            <p class="text-xs text-zinc-500 mt-1">Equipment Available</p>
+                        </div>
+                        <div class="bg-white rounded-xl p-4 border border-stone-200 text-center">
+                            <p class="text-2xl font-serif text-amber-700 font-semibold">Dedicated</p>
+                            <p class="text-xs text-zinc-500 mt-1">Service Team</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-sm text-zinc-600">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-600 flex-shrink-0"></i>
+                            Birthdays, anniversaries, and celebrations
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-zinc-600">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-600 flex-shrink-0"></i>
+                            Corporate events and business dinners
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-zinc-600">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-600 flex-shrink-0"></i>
+                            Tasting menus with wine pairings available
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-zinc-600">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-600 flex-shrink-0"></i>
+                            Canapé reception options upon request
+                        </li>
+                    </ul>
+                    <a href="mailto:events@emberandoak.co.uk" class="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 hover:bg-zinc-800 text-white text-sm font-semibold rounded-full transition-colors">
+                        <i data-lucide="mail" class="w-4 h-4"></i>
+                        Enquire About Private Dining
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gift Vouchers -->
+    <section class="py-16 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-zinc-900 to-zinc-800 rounded-2xl p-8 sm:p-12 lg:p-16 overflow-hidden relative">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                <div class="absolute bottom-0 left-0 w-48 h-48 bg-amber-500/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+                <div class="relative z-10 grid lg:grid-cols-2 gap-10 items-center">
+                    <div>
+                        <p class="text-amber-400 text-sm font-semibold tracking-[0.2em] uppercase mb-4">The Perfect Gift</p>
+                        <h2 class="font-serif text-3xl sm:text-4xl text-white font-medium leading-tight mb-4">Gift <em class="text-amber-300">Vouchers</em></h2>
+                        <p class="text-stone-300 leading-relaxed mb-6">Give the gift of an unforgettable dining experience. Our beautifully presented gift vouchers are available in any denomination and can be redeemed against food, drinks, and private dining.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="bg-zinc-800 px-5 py-3 rounded-xl border border-zinc-700">
+                                <p class="text-white font-semibold">£50</p>
+                                <p class="text-xs text-stone-400">Perfect for lunch for two</p>
+                            </div>
+                            <div class="bg-zinc-800 px-5 py-3 rounded-xl border border-zinc-700">
+                                <p class="text-white font-semibold">£100</p>
+                                <p class="text-xs text-stone-400">Dinner for two with wine</p>
+                            </div>
+                            <div class="bg-zinc-800 px-5 py-3 rounded-xl border border-zinc-700">
+                                <p class="text-white font-semibold">£200</p>
+                                <p class="text-xs text-stone-400">Tasting menu experience</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center lg:text-right">
+                        <div class="inline-block bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+                            <i data-lucide="gift" class="w-12 h-12 text-amber-400 mx-auto lg:ml-auto lg:mr-0 mb-4"></i>
+                            <p class="text-white font-serif text-lg mb-2">Purchase Online or In-House</p>
+                            <p class="text-stone-400 text-sm mb-4">Vouchers delivered by post or email.<br>Valid for 12 months from purchase.</p>
+                            <a href="mailto:hello@emberandoak.co.uk?subject=Gift Voucher Enquiry" class="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold rounded-full transition-colors">
+                                <i data-lucide="mail" class="w-4 h-4"></i>
+                                Enquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Confirmation Banner -->
+    <section class="py-10 bg-amber-50 border-y border-amber-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex items-center justify-center gap-2 mb-2">
+                <i data-lucide="info" class="w-5 h-5 text-amber-600"></i>
+                <p class="text-sm font-semibold text-amber-800">Booking Confirmation</p>
+            </div>
+            <p class="text-sm text-amber-700">We'll confirm your reservation within <strong>2 hours via email</strong>. For same-day bookings or parties of 8+, please call <strong>+44 (0)20 7946 0123</strong>.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-900 text-stone-400 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-10 mb-12">
+                <div>
+                    <a href="demo-restaurant.html" class="font-serif-italic text-2xl text-amber-400 font-semibold">Ember &amp; Oak</a>
+                    <p class="mt-4 text-sm leading-relaxed">Modern British dining rooted in open-fire tradition and seasonal, locally sourced ingredients.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wide mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="demo-restaurant.html" class="hover:text-amber-400 transition-colors">Home</a></li>
+                        <li><a href="demo-restaurant-menu.html" class="hover:text-amber-400 transition-colors">Our Menu</a></li>
+                        <li><a href="demo-restaurant-reservations.html" class="hover:text-amber-400 transition-colors">Reservations</a></li>
+                        <li><a href="demo-restaurant.html#about" class="hover:text-amber-400 transition-colors">About Us</a></li>
+                        <li><a href="demo-restaurant.html#contact" class="hover:text-amber-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wide mb-4">Contact</h4>
+                    <p class="text-sm mb-1">28 Oak Street, London, W1D 3QF</p>
+                    <p class="text-sm mb-1">+44 (0)20 7946 0123</p>
+                    <p class="text-sm">hello@emberandoak.co.uk</p>
+                    <div class="flex gap-3 mt-4">
+                        <a href="#" class="w-9 h-9 bg-zinc-800 hover:bg-amber-600 rounded-full flex items-center justify-center transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                        <a href="#" class="w-9 h-9 bg-zinc-800 hover:bg-amber-600 rounded-full flex items-center justify-center transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+                        <a href="#" class="w-9 h-9 bg-zinc-800 hover:bg-amber-600 rounded-full flex items-center justify-center transition-colors"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-zinc-800 pt-8 text-center">
+                <p class="text-xs text-zinc-500">✦ This is a demo website created by <a href="https://weblab.solutions" class="text-amber-500 hover:text-amber-400 underline">Weblab Solutions Solutions</a>. Ember &amp; Oak is a fictional business. <a href="portfolio.html" class="text-amber-500 hover:text-amber-400 underline">← Back to portfolio</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Reservation form submission
+        const form = document.getElementById('reservation-form');
+        const successMsg = document.getElementById('form-success');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            form.style.display = 'none';
+            successMsg.classList.remove('hidden');
+            lucide.createIcons();
+            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+        // Set minimum date to today
+        const dateInput = document.getElementById('date');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+    </script>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Lens & Light Studio — Photography</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            950: '#0a0a0a',
+                            900: '#111111',
+                            800: '#1a1a1a',
+                            700: '#2a2a2a',
+                            600: '#3a3a3a',
+                            500: '#555555',
+                            400: '#888888',
+                            300: '#aaaaaa',
+                            200: '#cccccc',
+                            100: '#e5e5e5',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+        .gallery-item img {
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.6s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-item .overlay {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-brand-950 text-white antialiased">
+
+    <!-- Demo Banner -->
+    <div class="bg-blue-600 text-white text-center py-2 text-xs font-medium tracking-wide">✦ Example website built by <a href="https://weblab.solutions" class="underline hover:text-blue-200">Weblab Solutions Solutions</a>. Lens & Light Studio is not a real business. <a href="portfolio.html" class="underline hover:text-blue-200">← Back to portfolio</a></div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-brand-950/80 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="demo-photography.html" class="font-serif italic text-xl tracking-tight">Lens & Light</a>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="demo-photography-gallery.html" class="text-sm text-brand-300 hover:text-white transition-colors">Gallery</a>
+                    <a href="#pricing" class="text-sm text-brand-300 hover:text-white transition-colors">Pricing</a>
+                    <a href="demo-photography-about.html" class="text-sm text-brand-300 hover:text-white transition-colors">About</a>
+                    <a href="#contact" class="text-sm text-brand-300 hover:text-white transition-colors">Contact</a>
+                    <a href="#contact" class="text-xs font-medium px-5 py-2 border border-white/20 rounded-full hover:bg-white hover:text-brand-950 transition-all duration-300">Book a Session</a>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="menu-toggle" class="md:hidden p-2 text-brand-300 hover:text-white transition-colors">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-brand-950/95 backdrop-blur-xl">
+            <div class="px-6 py-6 space-y-4">
+                <a href="demo-photography-gallery.html" class="block text-sm text-brand-300 hover:text-white transition-colors">Gallery</a>
+                <a href="#pricing" class="block text-sm text-brand-300 hover:text-white transition-colors" onclick="closeMobileMenu()">Pricing</a>
+                <a href="demo-photography-about.html" class="block text-sm text-brand-300 hover:text-white transition-colors">About</a>
+                <a href="#contact" class="block text-sm text-brand-300 hover:text-white transition-colors" onclick="closeMobileMenu()">Contact</a>
+                <a href="#contact" class="inline-block text-xs font-medium px-5 py-2 border border-white/20 rounded-full hover:bg-white hover:text-brand-950 transition-all duration-300" onclick="closeMobileMenu()">Book a Session</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=1600&h=900&fit=crop" alt="Photographer at work" class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-950/60 via-brand-950/40 to-brand-950"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+            <p class="text-xs font-medium tracking-[0.25em] uppercase text-brand-400 mb-6">Portrait · Wedding · Editorial</p>
+            <h1 class="font-serif italic text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight mb-8">
+                Moments captured<br>forever
+            </h1>
+            <p class="text-lg md:text-xl text-brand-300 font-light leading-relaxed max-w-2xl mx-auto mb-12">
+                Timeless photography that tells your story. From intimate portraits to grand celebrations, every frame is crafted with intention and artistry.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#contact" class="text-sm font-medium px-8 py-3.5 border border-white/20 rounded-full hover:bg-white hover:text-brand-950 transition-all duration-300">Book a Session</a>
+                <a href="demo-photography-gallery.html" class="text-sm font-medium px-8 py-3.5 text-brand-300 hover:text-white transition-colors flex items-center gap-2">
+                    View Portfolio <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-brand-500">
+            <span class="text-[10px] tracking-[0.2em] uppercase">Scroll</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 animate-bounce"></i>
+        </div>
+    </section>
+
+    <!-- Selected Work Preview -->
+    <section class="py-24 lg:py-32">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-end justify-between mb-12">
+                <div>
+                    <p class="text-xs font-medium tracking-[0.25em] uppercase text-brand-400 mb-3">Selected Work</p>
+                    <h2 class="font-serif italic text-3xl md:text-4xl tracking-tight">Recent favourites</h2>
+                </div>
+                <a href="demo-photography-gallery.html" class="hidden sm:flex items-center gap-2 text-sm text-brand-300 hover:text-white transition-colors">
+                    View all <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <!-- Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Portrait 1 -->
+                <div class="gallery-item relative overflow-hidden rounded-sm aspect-[3/4]">
+                    <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&h=600&fit=crop" alt="Portrait" class="w-full h-full object-cover">
+                    <div class="overlay absolute inset-0 bg-black/40 flex items-end p-6">
+                        <div>
+                            <p class="text-xs tracking-[0.2em] uppercase text-white/70 mb-1">Portrait</p>
+                            <p class="text-sm font-medium">Natural Light Study</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wedding 1 -->
+                <div class="gallery-item relative overflow-hidden rounded-sm aspect-[3/4]">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=600&fit=crop" alt="Wedding" class="w-full h-full object-cover">
+                    <div class="overlay absolute inset-0 bg-black/40 flex items-end p-6">
+                        <div>
+                            <p class="text-xs tracking-[0.2em] uppercase text-white/70 mb-1">Wedding</p>
+                            <p class="text-sm font-medium">Summer Ceremony</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portrait 2 -->
+                <div class="gallery-item relative overflow-hidden rounded-sm aspect-[3/4]">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&h=600&fit=crop" alt="Portrait" class="w-full h-full object-cover">
+                    <div class="overlay absolute inset-0 bg-black/40 flex items-end p-6">
+                        <div>
+                            <p class="text-xs tracking-[0.2em] uppercase text-white/70 mb-1">Portrait</p>
+                            <p class="text-sm font-medium">Golden Hour Portrait</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Editorial 1 -->
+                <div class="gallery-item relative overflow-hidden rounded-sm aspect-[3/4]">
+                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&h=600&fit=crop" alt="Editorial" class="w-full h-full object-cover">
+                    <div class="overlay absolute inset-0 bg-black/40 flex items-end p-6">
+                        <div>
+                            <p class="text-xs tracking-[0.2em] uppercase text-white/70 mb-1">Editorial</p>
+                            <p class="text-sm font-medium">Nature & Light</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wedding 2 -->
+                <div class="gallery-item relative overflow-hidden rounded-sm aspect-[3/4]">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&h=600&fit=crop" alt="Wedding" class="w-full h-full object-cover">
+                    <div class="overlay absolute inset-0 bg-black/40 flex items-end p-6">
+                        <div>
+                            <p class="text-xs tracking-[0.2em] uppercase text-white/70 mb-1">Wedding</p>
+                            <p class="text-sm font-medium">The First Dance</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Commercial 1 -->
+                <div class="gallery-item relative overflow-hidden rounded-sm aspect-[3/4]">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=600&fit=crop" alt="Commercial" class="w-full h-full object-cover">
+                    <div class="overlay absolute inset-0 bg-black/40 flex items-end p-6">
+                        <div>
+                            <p class="text-xs tracking-[0.2em] uppercase text-white/70 mb-1">Commercial</p>
+                            <p class="text-sm font-medium">Product Story</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sm:hidden mt-8 text-center">
+                <a href="demo-photography-gallery.html" class="inline-flex items-center gap-2 text-sm text-brand-300 hover:text-white transition-colors">
+                    View full portfolio <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 lg:py-32 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-xs font-medium tracking-[0.25em] uppercase text-brand-400 mb-3">Investment</p>
+                <h2 class="font-serif italic text-3xl md:text-4xl tracking-tight mb-4">Pricing packages</h2>
+                <p class="text-brand-400 font-light max-w-lg mx-auto">Transparent pricing tailored to your needs. Every package includes a pre-session consultation and professional editing.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Portrait -->
+                <div class="border border-white/10 rounded-sm p-8 lg:p-10 hover:border-white/20 transition-colors duration-300">
+                    <p class="text-xs font-medium tracking-[0.2em] uppercase text-brand-400 mb-4">Portrait</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-light">£150</span>
+                        <span class="text-brand-500 text-sm ml-1">/ session</span>
+                    </div>
+                    <p class="text-brand-300 text-sm font-light leading-relaxed mb-8">Perfect for individuals, couples, or families. Capture authentic moments in a relaxed, natural setting.</p>
+                    <ul class="space-y-3 mb-10">
+                        <li class="flex items-center gap-3 text-sm text-brand-300">
+                            <i data-lucide="check" class="w-4 h-4 text-white/40"></i> 1-hour session
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-brand-300">
+                            <i data-lucide="check" class="w-4 h-4 text-white/40"></i> 20 edited images
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-brand-300">
+                            <i data-lucide="check" class="w-4 h-4 text-white/40"></i> Online gallery
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-brand-300">
+                            <i data-lucide="check" class="w-4 h-4 text-white/40"></i> 1 outfit change
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center text-xs font-medium px-5 py-3 border border-white/20 rounded-full hover:bg-white hover:text-brand-950 transition-all duration-300">Enquire</a>
+                </div>
+
+                <!-- Wedding -->
+                <div class="border border-white/20 rounded-sm p-8 lg:p-10 bg-white/[0.02] relative">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+                        <span class="text-[10px] tracking-[0.2em] uppercase bg-white text-brand-950 px-4 py-1 rounded-full font-medium">Most Popular</span>
+                    </div>
+                    <p class="text-xs font-medium tracking-[0.2em] uppercase text-brand-400 mb-4">Wedding</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-light">£1,200</span>
+                        <span class="text-brand-500 text-sm ml-1">/ package</span>
+                    </div>
+                    <p class="text-brand-300 text-sm font-light leading-relaxed mb-8">Full-day coverage of your special day. Every tear, laugh, and dance preserved with care.</p>
+                    <ul class="space-y-3 mb-10">
+                        <li class="flex items-center gap-3 text-sm text-brand-300">
+                            <i data-lucide="check" class="w-4 h-4 text-white/40"></i> Full-day coverage
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-brand-300">
+                            <i data-lucide="check" class="w-4 h-4 text-white/40"></i> 300+ edited images
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-brand-300">
+                            <i data-lucide="check" class="w-4 h-4 text-white/40"></i> Engagement shoot
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-brand-300">
+                            <i data-lucide="check" class="w-4 h-4 text-white/40"></i> Handcrafted album
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-brand-300">
+                            <i data-lucide="check" class="w-4 h-4 text-white/40"></i> Second photographer
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center text-xs font-medium px-5 py-3 bg-white text-brand-950 rounded-full hover:bg-brand-100 transition-all duration-300">Enquire</a>
+                </div>
+
+                <!-- Commercial -->
+                <div class="border border-white/10 rounded-sm p-8 lg:p-10 hover:border-white/20 transition-colors duration-300">
+                    <p class="text-xs font-medium tracking-[0.2em] uppercase text-brand-400 mb-4">Commercial</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-light">Custom</span>
+                    </div>
+                    <p class="text-brand-300 text-sm font-light leading-relaxed mb-8">Tailored solutions for brands, products, and businesses. Let's bring your vision to life.</p>
+                    <ul class="space-y-3 mb-10">
+                        <li class="flex items-center gap-3 text-sm text-brand-300">
+                            <i data-lucide="check" class="w-4 h-4 text-white/40"></i> Bespoke packages
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-brand-300">
+                            <i data-lucide="check" class="w-4 h-4 text-white/40"></i> Brand consultation
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-brand-300">
+                            <i data-lucide="check" class="w-4 h-4 text-white/40"></i> Full commercial licence
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-brand-300">
+                            <i data-lucide="check" class="w-4 h-4 text-white/40"></i> Rapid turnaround
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center text-xs font-medium px-5 py-3 border border-white/20 rounded-full hover:bg-white hover:text-brand-950 transition-all duration-300">Get a Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview -->
+    <section class="py-24 lg:py-32 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative overflow-hidden rounded-sm aspect-[4/5]">
+                    <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=800&h=500&fit=crop" alt="Photographer at work" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                </div>
+                <div>
+                    <p class="text-xs font-medium tracking-[0.25em] uppercase text-brand-400 mb-3">About</p>
+                    <h2 class="font-serif italic text-3xl md:text-4xl tracking-tight mb-6">The eye behind<br>the lens</h2>
+                    <p class="text-brand-300 font-light leading-relaxed mb-6">
+                        With over eight years of experience, I've dedicated my craft to capturing the quiet, authentic moments that make life extraordinary. My approach is rooted in natural light and genuine connection.
+                    </p>
+                    <p class="text-brand-300 font-light leading-relaxed mb-10">
+                        Based in London, I work across the UK and internationally — always seeking the beauty in the unplanned and the magic in the everyday.
+                    </p>
+                    <a href="demo-photography-about.html" class="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-brand-300 transition-colors group">
+                        Read my story <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 lg:py-32 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="max-w-2xl mx-auto text-center">
+                <p class="text-xs font-medium tracking-[0.25em] uppercase text-brand-400 mb-3">Get in Touch</p>
+                <h2 class="font-serif italic text-3xl md:text-4xl tracking-tight mb-4">Let's create something<br>beautiful together</h2>
+                <p class="text-brand-300 font-light leading-relaxed mb-10">Ready to book your session or have a question? I'd love to hear from you.</p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
+                    <a href="mailto:hello@lensandlight.studio" class="flex items-center gap-3 text-sm text-brand-300 hover:text-white transition-colors">
+                        <i data-lucide="mail" class="w-5 h-5"></i> hello@lensandlight.studio
+                    </a>
+                    <a href="tel:+442071234567" class="flex items-center gap-3 text-sm text-brand-300 hover:text-white transition-colors">
+                        <i data-lucide="phone" class="w-5 h-5"></i> +44 207 123 4567
+                    </a>
+                </div>
+
+                <a href="mailto:hello@lensandlight.studio" class="inline-block text-sm font-medium px-8 py-3.5 border border-white/20 rounded-full hover:bg-white hover:text-brand-950 transition-all duration-300">Send an Email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <a href="demo-photography.html" class="font-serif italic text-lg">Lens & Light</a>
+                <div class="flex items-center gap-6">
+                    <a href="demo-photography-gallery.html" class="text-xs text-brand-500 hover:text-brand-300 transition-colors">Gallery</a>
+                    <a href="#pricing" class="text-xs text-brand-500 hover:text-brand-300 transition-colors">Pricing</a>
+                    <a href="demo-photography-about.html" class="text-xs text-brand-500 hover:text-brand-300 transition-colors">About</a>
+                    <a href="#contact" class="text-xs text-brand-500 hover:text-brand-300 transition-colors">Contact</a>
+                </div>
+                <p class="text-[11px] text-brand-600">Demo site by <a href="https://weblab.solutions" class="text-brand-500 hover:text-brand-300 transition-colors">Weblab Solutions Solutions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

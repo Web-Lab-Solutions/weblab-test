@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Membership – Iron Peak Fitness</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { inter: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
+        details summary::-webkit-details-marker { display: none; }
+        details summary::marker { display: none; content: ''; }
+        details[open] .faq-chevron { transform: rotate(180deg); }
+    </style>
+</head>
+<body class="bg-zinc-950 text-white font-inter">
+
+    <!-- Demo Banner -->
+    <div class="bg-blue-600 text-white text-center py-2 text-xs font-medium tracking-wide">✦ Example website built by <a href="https://weblab.solutions" class="underline hover:text-blue-200">Weblab Solutions Solutions</a>. Iron Peak Fitness is not a real business. <a href="portfolio.html" class="underline hover:text-blue-200">← Back to portfolio</a></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-8 left-0 right-0 z-50 bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="demo-fitness.html" class="text-2xl font-black tracking-tight">IRON<span class="text-red-600">PEAK</span></a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="demo-fitness-classes.html" class="text-sm font-medium text-zinc-300 hover:text-white transition">Classes</a>
+                    <a href="demo-fitness-join.html" class="text-sm font-medium text-white transition">Membership</a>
+                    <a href="demo-fitness.html#coaches" class="text-sm font-medium text-zinc-300 hover:text-white transition">Coaches</a>
+                    <a href="demo-fitness-join.html" class="bg-red-600 hover:bg-red-700 text-white text-sm font-bold px-5 py-2.5 rounded-lg transition">Join Now</a>
+                </div>
+                <button id="mobile-toggle" class="md:hidden text-white">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-zinc-900 border-t border-zinc-800">
+            <div class="px-4 py-4 space-y-3">
+                <a href="demo-fitness-classes.html" class="block text-sm font-medium text-zinc-300 hover:text-white transition py-2">Classes</a>
+                <a href="demo-fitness-join.html" class="block text-sm font-medium text-white py-2">Membership</a>
+                <a href="demo-fitness.html#coaches" class="block text-sm font-medium text-zinc-300 hover:text-white transition py-2">Coaches</a>
+                <a href="demo-fitness-join.html" class="block bg-red-600 hover:bg-red-700 text-white text-sm font-bold px-5 py-2.5 rounded-lg text-center transition mt-2">Join Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="pt-36 pb-16 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-red-500 font-bold text-sm tracking-[0.3em] uppercase mb-4">Invest in Yourself</p>
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight mb-4">Choose Your Plan</h1>
+            <p class="text-zinc-400 text-lg max-w-2xl mx-auto">Flexible memberships that fit your lifestyle. No hidden fees, no long-term lock-ins. Cancel anytime.</p>
+        </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="py-16 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto items-start">
+                <!-- Basic -->
+                <div class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 hover:border-zinc-700 transition">
+                    <p class="text-zinc-400 font-bold text-sm uppercase tracking-wider mb-2">Basic</p>
+                    <div class="flex items-baseline gap-1 mb-1">
+                        <span class="text-5xl font-black">£29</span>
+                        <span class="text-zinc-500 text-sm">/month</span>
+                    </div>
+                    <p class="text-zinc-500 text-sm mb-8">Perfect for getting started on your fitness journey.</p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-sm text-zinc-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0"></i> Unlimited gym access
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-zinc-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0"></i> 5 classes per month
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-zinc-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0"></i> Locker room & showers
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-zinc-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0"></i> Free parking
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-zinc-600">
+                            <i data-lucide="x" class="w-5 h-5 flex-shrink-0"></i> Personal training
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-zinc-600">
+                            <i data-lucide="x" class="w-5 h-5 flex-shrink-0"></i> Recovery suite access
+                        </li>
+                    </ul>
+                    <a href="#" class="block w-full border-2 border-zinc-700 hover:border-white text-white font-bold text-center py-3 rounded-lg transition">Get Started</a>
+                </div>
+
+                <!-- Pro (Popular) -->
+                <div class="bg-zinc-900 rounded-2xl p-8 border-2 border-red-600 relative shadow-2xl shadow-red-600/10 md:-mt-4 md:mb-[-16px]">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-600 text-white text-xs font-bold px-4 py-1 rounded-full tracking-wide">MOST POPULAR</div>
+                    <p class="text-red-500 font-bold text-sm uppercase tracking-wider mb-2">Pro</p>
+                    <div class="flex items-baseline gap-1 mb-1">
+                        <span class="text-5xl font-black">£49</span>
+                        <span class="text-zinc-500 text-sm">/month</span>
+                    </div>
+                    <p class="text-zinc-500 text-sm mb-8">The complete Iron Peak experience for committed athletes.</p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-sm text-zinc-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0"></i> Unlimited gym access
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-zinc-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0"></i> Unlimited classes
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-zinc-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0"></i> Locker room & showers
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-zinc-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0"></i> Free parking
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-zinc-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0"></i> 1 PT session / month
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-zinc-600">
+                            <i data-lucide="x" class="w-5 h-5 flex-shrink-0"></i> Recovery suite access
+                        </li>
+                    </ul>
+                    <a href="#" class="block w-full bg-red-600 hover:bg-red-700 text-white font-bold text-center py-3 rounded-lg transition">Get Started</a>
+                </div>
+
+                <!-- Elite -->
+                <div class="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 hover:border-zinc-700 transition">
+                    <p class="text-zinc-400 font-bold text-sm uppercase tracking-wider mb-2">Elite</p>
+                    <div class="flex items-baseline gap-1 mb-1">
+                        <span class="text-5xl font-black">£79</span>
+                        <span class="text-zinc-500 text-sm">/month</span>
+                    </div>
+                    <p class="text-zinc-500 text-sm mb-8">The ultimate membership with full premium access.</p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-sm text-zinc-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0"></i> Unlimited gym access
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-zinc-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0"></i> Unlimited classes
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-zinc-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0"></i> Private locker
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-zinc-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0"></i> Free parking
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-zinc-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0"></i> 4 PT sessions / month
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-zinc-300">
+                            <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0"></i> Recovery suite & sauna
+                        </li>
+                    </ul>
+                    <a href="#" class="block w-full border-2 border-zinc-700 hover:border-white text-white font-bold text-center py-3 rounded-lg transition">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="py-24 bg-zinc-900">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-black text-center mb-12">Plan Comparison</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full min-w-[600px] text-sm">
+                    <thead>
+                        <tr class="border-b border-zinc-700">
+                            <th class="py-4 px-4 text-left text-zinc-400 font-semibold">Feature</th>
+                            <th class="py-4 px-4 text-center text-zinc-400 font-semibold">Basic<br><span class="text-white font-black text-lg">£29</span></th>
+                            <th class="py-4 px-4 text-center font-semibold bg-red-600/10 rounded-t-lg"><span class="text-red-500 text-xs font-bold">POPULAR</span><br><span class="text-white font-black text-lg">£49</span></th>
+                            <th class="py-4 px-4 text-center text-zinc-400 font-semibold">Elite<br><span class="text-white font-black text-lg">£79</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-zinc-800">
+                            <td class="py-4 px-4 text-zinc-300">Gym Access</td>
+                            <td class="py-4 px-4 text-center">Unlimited</td>
+                            <td class="py-4 px-4 text-center bg-red-600/5">Unlimited</td>
+                            <td class="py-4 px-4 text-center">Unlimited</td>
+                        </tr>
+                        <tr class="border-b border-zinc-800">
+                            <td class="py-4 px-4 text-zinc-300">Group Classes</td>
+                            <td class="py-4 px-4 text-center text-zinc-500">5 / month</td>
+                            <td class="py-4 px-4 text-center bg-red-600/5 font-semibold text-white">Unlimited</td>
+                            <td class="py-4 px-4 text-center font-semibold">Unlimited</td>
+                        </tr>
+                        <tr class="border-b border-zinc-800">
+                            <td class="py-4 px-4 text-zinc-300">Personal Training</td>
+                            <td class="py-4 px-4 text-center text-zinc-600">—</td>
+                            <td class="py-4 px-4 text-center bg-red-600/5">1 / month</td>
+                            <td class="py-4 px-4 text-center font-semibold">4 / month</td>
+                        </tr>
+                        <tr class="border-b border-zinc-800">
+                            <td class="py-4 px-4 text-zinc-300">Recovery Suite & Sauna</td>
+                            <td class="py-4 px-4 text-center"><i data-lucide="x" class="w-5 h-5 text-zinc-600 inline"></i></td>
+                            <td class="py-4 px-4 text-center bg-red-600/5"><i data-lucide="x" class="w-5 h-5 text-zinc-600 inline"></i></td>
+                            <td class="py-4 px-4 text-center"><i data-lucide="check" class="w-5 h-5 text-green-500 inline"></i></td>
+                        </tr>
+                        <tr class="border-b border-zinc-800">
+                            <td class="py-4 px-4 text-zinc-300">Private Locker</td>
+                            <td class="py-4 px-4 text-center"><i data-lucide="x" class="w-5 h-5 text-zinc-600 inline"></i></td>
+                            <td class="py-4 px-4 text-center bg-red-600/5"><i data-lucide="x" class="w-5 h-5 text-zinc-600 inline"></i></td>
+                            <td class="py-4 px-4 text-center"><i data-lucide="check" class="w-5 h-5 text-green-500 inline"></i></td>
+                        </tr>
+                        <tr class="border-b border-zinc-800">
+                            <td class="py-4 px-4 text-zinc-300">Guest Passes</td>
+                            <td class="py-4 px-4 text-center text-zinc-600">—</td>
+                            <td class="py-4 px-4 text-center bg-red-600/5">1 / month</td>
+                            <td class="py-4 px-4 text-center font-semibold">4 / month</td>
+                        </tr>
+                        <tr class="border-b border-zinc-800">
+                            <td class="py-4 px-4 text-zinc-300">Nutrition Plan</td>
+                            <td class="py-4 px-4 text-center"><i data-lucide="x" class="w-5 h-5 text-zinc-600 inline"></i></td>
+                            <td class="py-4 px-4 text-center bg-red-600/5"><i data-lucide="x" class="w-5 h-5 text-zinc-600 inline"></i></td>
+                            <td class="py-4 px-4 text-center"><i data-lucide="check" class="w-5 h-5 text-green-500 inline"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-4 text-zinc-300">Free Parking</td>
+                            <td class="py-4 px-4 text-center"><i data-lucide="check" class="w-5 h-5 text-green-500 inline"></i></td>
+                            <td class="py-4 px-4 text-center bg-red-600/5"><i data-lucide="check" class="w-5 h-5 text-green-500 inline"></i></td>
+                            <td class="py-4 px-4 text-center"><i data-lucide="check" class="w-5 h-5 text-green-500 inline"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 bg-zinc-950">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-red-500 font-bold text-sm tracking-[0.3em] uppercase mb-4">Got Questions?</p>
+                <h2 class="text-4xl sm:text-5xl font-black tracking-tight">Frequently Asked</h2>
+            </div>
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <details class="bg-zinc-900 border border-zinc-800 rounded-xl group" open>
+                    <summary class="flex items-center justify-between p-6 cursor-pointer">
+                        <span class="font-bold text-lg pr-4">Can I cancel my membership at any time?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-zinc-400 flex-shrink-0 faq-chevron transition-transform duration-300"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-zinc-400 leading-relaxed">
+                        Absolutely. All our memberships are month-to-month with no long-term contracts. You can cancel at any time — just give us 30 days' notice and you're good to go. No cancellation fees, no hassle.
+                    </div>
+                </details>
+                <!-- FAQ 2 -->
+                <details class="bg-zinc-900 border border-zinc-800 rounded-xl group">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer">
+                        <span class="font-bold text-lg pr-4">Do I need to be fit to join?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-zinc-400 flex-shrink-0 faq-chevron transition-transform duration-300"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-zinc-400 leading-relaxed">
+                        Not at all. We welcome all fitness levels, from complete beginners to seasoned athletes. Our coaches provide scaled options in every class, and our onboarding session will help you find the right starting point for your goals.
+                    </div>
+                </details>
+                <!-- FAQ 3 -->
+                <details class="bg-zinc-900 border border-zinc-800 rounded-xl group">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer">
+                        <span class="font-bold text-lg pr-4">Is there a joining fee?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-zinc-400 flex-shrink-0 faq-chevron transition-transform duration-300"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-zinc-400 leading-relaxed">
+                        No. There's no joining fee, no admin fee, and no setup charges. Your first week is completely free as a trial, and if you decide to sign up, you simply start paying your monthly rate.
+                    </div>
+                </details>
+                <!-- FAQ 4 -->
+                <details class="bg-zinc-900 border border-zinc-800 rounded-xl group">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer">
+                        <span class="font-bold text-lg pr-4">Can I freeze my membership if I'm away?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-zinc-400 flex-shrink-0 faq-chevron transition-transform duration-300"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-zinc-400 leading-relaxed">
+                        Yes. Pro and Elite members can freeze their membership for up to 4 weeks per year at no extra charge. Basic members can freeze for up to 2 weeks. Just let us know at least 7 days in advance.
+                    </div>
+                </details>
+                <!-- FAQ 5 -->
+                <details class="bg-zinc-900 border border-zinc-800 rounded-xl group">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer">
+                        <span class="font-bold text-lg pr-4">What should I bring to my first class?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-zinc-400 flex-shrink-0 faq-chevron transition-transform duration-300"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-zinc-400 leading-relaxed">
+                        Just yourself, comfortable workout clothes, and a water bottle. We provide towels, all equipment, and have full locker rooms with showers. Arrive 10 minutes early so your coach can show you around and get you set up.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-red-500 font-bold text-sm tracking-[0.3em] uppercase mb-4">Real Results</p>
+                <h2 class="text-4xl sm:text-5xl font-black tracking-tight">What Members Say</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-zinc-950 rounded-2xl p-8 border border-zinc-800">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                    </div>
+                    <p class="text-zinc-300 leading-relaxed mb-6">"I joined Iron Peak six months ago and I've completely transformed. Lost 2 stone, can deadlift my bodyweight, and actually look forward to going to the gym. The coaches are incredible."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-red-600/20 flex items-center justify-center font-bold text-red-500 text-sm">DL</div>
+                        <div>
+                            <p class="font-semibold text-sm">Daniel L.</p>
+                            <p class="text-zinc-500 text-xs">Pro Member · 6 months</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-zinc-950 rounded-2xl p-8 border border-zinc-800">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                    </div>
+                    <p class="text-zinc-300 leading-relaxed mb-6">"The Spin Cycle classes are addictive — I go three times a week and it never gets boring. Sarah's energy is unreal. The whole vibe of the gym is motivating without being intimidating."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-red-600/20 flex items-center justify-center font-bold text-red-500 text-sm">AP</div>
+                        <div>
+                            <p class="font-semibold text-sm">Amira P.</p>
+                            <p class="text-zinc-500 text-xs">Basic Member · 1 year</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-zinc-950 rounded-2xl p-8 border border-zinc-800">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                    </div>
+                    <p class="text-zinc-300 leading-relaxed mb-6">"As an Elite member, the PT sessions and recovery suite have been game-changers for my marathon training. James knows his stuff. Worth every penny of the upgrade."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-red-600/20 flex items-center justify-center font-bold text-red-500 text-sm">RK</div>
+                        <div>
+                            <p class="font-semibold text-sm">Raj K.</p>
+                            <p class="text-zinc-500 text-xs">Elite Member · 8 months</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / CTA -->
+    <section class="py-24 bg-zinc-950 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20rem] font-black text-red-600 leading-none select-none">IP</div>
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-red-500 font-bold text-sm tracking-[0.3em] uppercase mb-4">Start Today</p>
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-6">Still Have Questions?</h2>
+            <p class="text-zinc-400 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+                Come in for a free tour. Meet the coaches, try a class, and see if Iron Peak is the right fit. No pressure, no obligations.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+                <a href="#" class="bg-red-600 hover:bg-red-700 text-white font-bold text-lg px-10 py-4 rounded-lg transition inline-flex items-center gap-2">
+                    Book a Free Tour <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+                <a href="tel:02079460958" class="border border-zinc-700 hover:border-white text-white font-bold text-lg px-10 py-4 rounded-lg transition inline-flex items-center gap-2">
+                    <i data-lucide="phone" class="w-5 h-5"></i> 020 7946 0958
+                </a>
+            </div>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-zinc-500">
+                <div class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-red-500"></i> 123 Iron Street, London EC2A 1NT</div>
+                <div class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-red-500"></i> hello@ironpeak.fitness</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-950 border-t border-zinc-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-10">
+                <div>
+                    <a href="demo-fitness.html" class="text-2xl font-black tracking-tight">IRON<span class="text-red-600">PEAK</span></a>
+                    <p class="text-zinc-500 text-sm mt-3 leading-relaxed">Push harder. Get stronger. The gym that transforms.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm uppercase tracking-wider text-zinc-400 mb-4">Pages</h4>
+                    <ul class="space-y-2 text-sm text-zinc-500">
+                        <li><a href="demo-fitness.html" class="hover:text-white transition">Home</a></li>
+                        <li><a href="demo-fitness-classes.html" class="hover:text-white transition">Classes</a></li>
+                        <li><a href="demo-fitness-join.html" class="hover:text-white transition">Membership</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm uppercase tracking-wider text-zinc-400 mb-4">Hours</h4>
+                    <ul class="space-y-2 text-sm text-zinc-500">
+                        <li>Mon – Fri: 5:00 AM – 10:00 PM</li>
+                        <li>Saturday: 6:00 AM – 8:00 PM</li>
+                        <li>Sunday: 7:00 AM – 6:00 PM</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm uppercase tracking-wider text-zinc-400 mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm text-zinc-500">
+                        <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4"></i> 123 Iron Street, London</li>
+                        <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> 020 7946 0958</li>
+                        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i> hello@ironpeak.fitness</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-zinc-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-zinc-600 text-xs">© 2024 Iron Peak Fitness. All rights reserved.</p>
+                <p class="text-zinc-600 text-xs">Demo site by <a href="https://weblab.solutions" class="text-zinc-500 hover:text-white underline">Weblab Solutions Solutions</a>. Iron Peak Fitness is not a real business.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const toggle = document.getElementById('mobile-toggle');
+        const menu = document.getElementById('mobile-menu');
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => menu.classList.add('hidden'));
+        });
+    </script>
+</body>
+</html>

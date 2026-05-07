@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://weblab.solutions/sitemap.xml
+
+# Allow all main pages
+Allow: /index.html
+Allow: /services.html
+Allow: /portfolio.html
+Allow: /pricing.html
+Allow: /contact.html
+
+# Allow demo pages
+Allow: /demo-*.html

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Portfolio — Lens & Light Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            950: '#0a0a0a',
+                            900: '#111111',
+                            800: '#1a1a1a',
+                            700: '#2a2a2a',
+                            600: '#3a3a3a',
+                            500: '#555555',
+                            400: '#888888',
+                            300: '#aaaaaa',
+                            200: '#cccccc',
+                            100: '#e5e5e5',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+        .gallery-item img {
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.6s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-item .overlay {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+        .filter-btn.active {
+            background: white;
+            color: #0a0a0a;
+        }
+        .gallery-card {
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .gallery-card.hidden-card {
+            opacity: 0;
+            transform: scale(0.95);
+            position: absolute;
+            pointer-events: none;
+        }
+        /* Lightbox */
+        .lightbox {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+    </style>
+</head>
+<body class="bg-brand-950 text-white antialiased">
+
+    <!-- Demo Banner -->
+    <div class="bg-blue-600 text-white text-center py-2 text-xs font-medium tracking-wide">✦ Example website built by <a href="https://weblab.solutions" class="underline hover:text-blue-200">Weblab Solutions Solutions</a>. Lens & Light Studio is not a real business. <a href="portfolio.html" class="underline hover:text-blue-200">← Back to portfolio</a></div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-brand-950/80 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="demo-photography.html" class="font-serif italic text-xl tracking-tight">Lens & Light</a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="demo-photography-gallery.html" class="text-sm text-white transition-colors">Gallery</a>
+                    <a href="demo-photography.html#pricing" class="text-sm text-brand-300 hover:text-white transition-colors">Pricing</a>
+                    <a href="demo-photography-about.html" class="text-sm text-brand-300 hover:text-white transition-colors">About</a>
+                    <a href="demo-photography.html#contact" class="text-sm text-brand-300 hover:text-white transition-colors">Contact</a>
+                    <a href="demo-photography.html#contact" class="text-xs font-medium px-5 py-2 border border-white/20 rounded-full hover:bg-white hover:text-brand-950 transition-all duration-300">Book a Session</a>
+                </div>
+                <button id="menu-toggle" class="md:hidden p-2 text-brand-300 hover:text-white transition-colors">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-brand-950/95 backdrop-blur-xl">
+            <div class="px-6 py-6 space-y-4">
+                <a href="demo-photography-gallery.html" class="block text-sm text-white transition-colors">Gallery</a>
+                <a href="demo-photography.html#pricing" class="block text-sm text-brand-300 hover:text-white transition-colors">Pricing</a>
+                <a href="demo-photography-about.html" class="block text-sm text-brand-300 hover:text-white transition-colors">About</a>
+                <a href="demo-photography.html#contact" class="block text-sm text-brand-300 hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Gallery Header -->
+    <section class="py-20 lg:py-28">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+            <p class="text-xs font-medium tracking-[0.25em] uppercase text-brand-400 mb-3">Portfolio</p>
+            <h1 class="font-serif italic text-4xl md:text-6xl tracking-tight mb-6">Selected Work</h1>
+            <p class="text-brand-300 font-light max-w-lg mx-auto leading-relaxed">A curated collection of portraits, weddings, editorial, and commercial work from the past eight years.</p>
+        </div>
+    </section>
+
+    <!-- Filter Tabs -->
+    <section class="pb-8">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-wrap items-center justify-center gap-2">
+                <button class="filter-btn active text-xs font-medium px-5 py-2 border border-white/10 rounded-full" data-filter="all">All</button>
+                <button class="filter-btn text-xs font-medium px-5 py-2 border border-white/10 rounded-full text-brand-300 hover:text-white hover:border-white/20" data-filter="portraits">Portraits</button>
+                <button class="filter-btn text-xs font-medium px-5 py-2 border border-white/10 rounded-full text-brand-300 hover:text-white hover:border-white/20" data-filter="weddings">Weddings</button>
+                <button class="filter-btn text-xs font-medium px-5 py-2 border border-white/10 rounded-full text-brand-300 hover:text-white hover:border-white/20" data-filter="editorial">Editorial</button>
+                <button class="filter-btn text-xs font-medium px-5 py-2 border border-white/10 rounded-full text-brand-300 hover:text-white hover:border-white/20" data-filter="commercial">Commercial</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="py-8 pb-24 lg:pb-32">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+
+                <!-- Portrait 1 -->
+                <div class="gallery-card gallery-item relative overflow-hidden rounded-sm cursor-pointer" data-category="portraits" onclick="openLightbox(this)">
+                    <div class="aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&h=600&fit=crop" alt="Portrait — Natural Light Study" class="w-full h-full object-cover" data-title="Natural Light Study" data-cat="Portrait">
+                    </div>
+                    <div class="overlay absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-5">
+                        <div>
+                            <p class="text-[10px] tracking-[0.2em] uppercase text-white/60 mb-1">Portrait</p>
+                            <p class="text-sm font-medium">Natural Light Study</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wedding 1 -->
+                <div class="gallery-card gallery-item relative overflow-hidden rounded-sm cursor-pointer" data-category="weddings" onclick="openLightbox(this)">
+                    <div class="aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=600&fit=crop" alt="Wedding — Summer Ceremony" class="w-full h-full object-cover" data-title="Summer Ceremony" data-cat="Wedding">
+                    </div>
+                    <div class="overlay absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-5">
+                        <div>
+                            <p class="text-[10px] tracking-[0.2em] uppercase text-white/60 mb-1">Wedding</p>
+                            <p class="text-sm font-medium">Summer Ceremony</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portrait 2 -->
+                <div class="gallery-card gallery-item relative overflow-hidden rounded-sm cursor-pointer" data-category="portraits" onclick="openLightbox(this)">
+                    <div class="aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&h=600&fit=crop" alt="Portrait — Golden Hour Portrait" class="w-full h-full object-cover" data-title="Golden Hour Portrait" data-cat="Portrait">
+                    </div>
+                    <div class="overlay absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-5">
+                        <div>
+                            <p class="text-[10px] tracking-[0.2em] uppercase text-white/60 mb-1">Portrait</p>
+                            <p class="text-sm font-medium">Golden Hour Portrait</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Editorial 1 -->
+                <div class="gallery-card gallery-item relative overflow-hidden rounded-sm cursor-pointer" data-category="editorial" onclick="openLightbox(this)">
+                    <div class="aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&h=600&fit=crop" alt="Editorial — Nature & Light" class="w-full h-full object-cover" data-title="Nature & Light" data-cat="Editorial">
+                    </div>
+                    <div class="overlay absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-5">
+                        <div>
+                            <p class="text-[10px] tracking-[0.2em] uppercase text-white/60 mb-1">Editorial</p>
+                            <p class="text-sm font-medium">Nature & Light</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wedding 2 -->
+                <div class="gallery-card gallery-item relative overflow-hidden rounded-sm cursor-pointer" data-category="weddings" onclick="openLightbox(this)">
+                    <div class="aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&h=600&fit=crop" alt="Wedding — The First Dance" class="w-full h-full object-cover" data-title="The First Dance" data-cat="Wedding">
+                    </div>
+                    <div class="overlay absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-5">
+                        <div>
+                            <p class="text-[10px] tracking-[0.2em] uppercase text-white/60 mb-1">Wedding</p>
+                            <p class="text-sm font-medium">The First Dance</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Commercial 1 -->
+                <div class="gallery-card gallery-item relative overflow-hidden rounded-sm cursor-pointer" data-category="commercial" onclick="openLightbox(this)">
+                    <div class="aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=600&fit=crop" alt="Commercial — Product Story" class="w-full h-full object-cover" data-title="Product Story" data-cat="Commercial">
+                    </div>
+                    <div class="overlay absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-5">
+                        <div>
+                            <p class="text-[10px] tracking-[0.2em] uppercase text-white/60 mb-1">Commercial</p>
+                            <p class="text-sm font-medium">Product Story</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portrait 3 -->
+                <div class="gallery-card gallery-item relative overflow-hidden rounded-sm cursor-pointer" data-category="portraits" onclick="openLightbox(this)">
+                    <div class="aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop" alt="Portrait — Environmental Portrait" class="w-full h-full object-cover" data-title="Environmental Portrait" data-cat="Portrait">
+                    </div>
+                    <div class="overlay absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-5">
+                        <div>
+                            <p class="text-[10px] tracking-[0.2em] uppercase text-white/60 mb-1">Portrait</p>
+                            <p class="text-sm font-medium">Environmental Portrait</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wedding 3 -->
+                <div class="gallery-card gallery-item relative overflow-hidden rounded-sm cursor-pointer" data-category="weddings" onclick="openLightbox(this)">
+                    <div class="aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=600&h=600&fit=crop" alt="Wedding — Garden Vows" class="w-full h-full object-cover" data-title="Garden Vows" data-cat="Wedding">
+                    </div>
+                    <div class="overlay absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-5">
+                        <div>
+                            <p class="text-[10px] tracking-[0.2em] uppercase text-white/60 mb-1">Wedding</p>
+                            <p class="text-sm font-medium">Garden Vows</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Editorial 2 -->
+                <div class="gallery-card gallery-item relative overflow-hidden rounded-sm cursor-pointer" data-category="editorial" onclick="openLightbox(this)">
+                    <div class="aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&h=600&fit=crop" alt="Editorial — Sunset Golden" class="w-full h-full object-cover" data-title="Sunset Golden" data-cat="Editorial">
+                    </div>
+                    <div class="overlay absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-5">
+                        <div>
+                            <p class="text-[10px] tracking-[0.2em] uppercase text-white/60 mb-1">Editorial</p>
+                            <p class="text-sm font-medium">Sunset Golden</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Commercial 2 -->
+                <div class="gallery-card gallery-item relative overflow-hidden rounded-sm cursor-pointer" data-category="commercial" onclick="openLightbox(this)">
+                    <div class="aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=600&fit=crop" alt="Commercial — Minimal Product" class="w-full h-full object-cover" data-title="Minimal Product" data-cat="Commercial">
+                    </div>
+                    <div class="overlay absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-5">
+                        <div>
+                            <p class="text-[10px] tracking-[0.2em] uppercase text-white/60 mb-1">Commercial</p>
+                            <p class="text-sm font-medium">Minimal Product</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portrait 4 (reuse portrait 1 with different crop for variety) -->
+                <div class="gallery-card gallery-item relative overflow-hidden rounded-sm cursor-pointer" data-category="portraits" onclick="openLightbox(this)">
+                    <div class="aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&h=750&fit=crop" alt="Portrait — Shadow Play" class="w-full h-full object-cover" data-title="Shadow Play" data-cat="Portrait">
+                    </div>
+                    <div class="overlay absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-5">
+                        <div>
+                            <p class="text-[10px] tracking-[0.2em] uppercase text-white/60 mb-1">Portrait</p>
+                            <p class="text-sm font-medium">Shadow Play</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wedding 4 (reuse with different crop) -->
+                <div class="gallery-card gallery-item relative overflow-hidden rounded-sm cursor-pointer" data-category="weddings" onclick="openLightbox(this)">
+                    <div class="aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&h=750&fit=crop" alt="Wedding — Venue Details" class="w-full h-full object-cover" data-title="Venue Details" data-cat="Wedding">
+                    </div>
+                    <div class="overlay absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-5">
+                        <div>
+                            <p class="text-[10px] tracking-[0.2em] uppercase text-white/60 mb-1">Wedding</p>
+                            <p class="text-sm font-medium">Venue Details</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 lg:py-32 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+            <h2 class="font-serif italic text-3xl md:text-5xl tracking-tight mb-6">Ready to create your story?</h2>
+            <p class="text-brand-300 font-light max-w-lg mx-auto mb-10">Let's discuss your vision and bring it to life through the art of photography.</p>
+            <a href="demo-photography.html#contact" class="inline-block text-sm font-medium px-8 py-3.5 border border-white/20 rounded-full hover:bg-white hover:text-brand-950 transition-all duration-300">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-12">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white/60 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        <div class="max-w-5xl w-full max-h-[90vh] flex flex-col items-center">
+            <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[80vh] object-contain rounded-sm">
+            <div class="mt-4 text-center">
+                <p class="text-[10px] tracking-[0.2em] uppercase text-brand-400 mb-1" id="lightbox-cat"></p>
+                <p class="text-sm font-medium" id="lightbox-title"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <a href="demo-photography.html" class="font-serif italic text-lg">Lens & Light</a>
+                <div class="flex items-center gap-6">
+                    <a href="demo-photography-gallery.html" class="text-xs text-white">Gallery</a>
+                    <a href="demo-photography.html#pricing" class="text-xs text-brand-500 hover:text-brand-300 transition-colors">Pricing</a>
+                    <a href="demo-photography-about.html" class="text-xs text-brand-500 hover:text-brand-300 transition-colors">About</a>
+                    <a href="demo-photography.html#contact" class="text-xs text-brand-500 hover:text-brand-300 transition-colors">Contact</a>
+                </div>
+                <p class="text-[11px] text-brand-600">Demo site by <a href="https://weblab.solutions" class="text-brand-500 hover:text-brand-300 transition-colors">Weblab Solutions Solutions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Mobile menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        // Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryCards = document.querySelectorAll('.gallery-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active');
+                    b.classList.add('text-brand-300');
+                });
+                btn.classList.add('active');
+                btn.classList.remove('text-brand-300');
+
+                const filter = btn.dataset.filter;
+                galleryCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.classList.remove('hidden-card');
+                        card.style.position = '';
+                    } else {
+                        card.classList.add('hidden-card');
+                        setTimeout(() => { card.style.position = ''; }, 400);
+                    }
+                });
+            });
+        });
+
+        // Lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxCat = document.getElementById('lightbox-cat');
+
+        function openLightbox(el) {
+            const img = el.querySelector('img');
+            lightboxImg.src = img.src.replace('w=600', 'w=1200').replace('h=600', 'h=1200').replace('h=750', 'h=1200');
+            lightboxImg.alt = img.alt;
+            lightboxTitle.textContent = img.dataset.title;
+            lightboxCat.textContent = img.dataset.cat;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>
